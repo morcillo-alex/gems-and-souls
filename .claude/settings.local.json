@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Format-Hex ''C:\\\\Users\\\\olver\\\\projects\\\\Godot\\\\gems-and-souls\\\\GemsAndSoulsGame.gdextension'' | Select-Object -First 3\")"
+    ]
+  }
+}
