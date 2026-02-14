@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6ifokwyywisk"]
+
+[ext_resource type="PackedScene" uid="uid://bftopbttlp7xp" path="res://game/models/characters/kaykit_mistery/Protagonists/characters/Protagonist_B.glb" id="1_hrhmd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f4aw6"]
+radius = 0.4555664
+height = 2.303955
+
+[node name="Bob" type="HeroPlayer" unique_id=3434954]
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="." unique_id=322102247]
+transform = Transform3D(-1, -2.9900345e-08, 8.215053e-08, 0, 0.93969256, 0.3420201, -8.742278e-08, 0.3420201, -0.93969256, 0, 2, 0)
+top_level = true
+spring_length = 5.0
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraSpringArm" unique_id=1212350525]
+
+[node name="CharacterCollision" type="CollisionShape3D" parent="." unique_id=400734831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005864024, 1.1374475, 0)
+shape = SubResource("CapsuleShape3D_f4aw6")
+
+[node name="Protagonist_B" parent="." unique_id=397438334 instance=ExtResource("1_hrhmd")]

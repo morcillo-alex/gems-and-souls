@@ -19,6 +19,11 @@ void HeroPlayer::_bind_methods() {
 }
 
 void HeroPlayer::_internal_ready() {
+    // Call parent first (initializes camera, gravity, state)
+
+    if (Engine::get_singleton()->is_editor_hint()) {
+        return;
+    }
 
     // Initialize animation tree
     animationTree = cast_to<AnimationTree>(get_node_or_null(NodePath("Hiker/AnimationTree")));
@@ -26,7 +31,6 @@ void HeroPlayer::_internal_ready() {
         animationStateMachine = animationTree->get("parameters/playback");
     } else {
         UtilityFunctions::push_error("[HeroPlayer] AnimationTree not found at Hiker/AnimationTree");
-        get_tree()->quit(1);
     }
 }
 

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cl7rjmifrdwdo"]
+
+[ext_resource type="Material" uid="uid://bpw0frmwvs4oq" path="res://game/materials/prototyping/mat_prototyping_base.tres" id="1_d8jvq"]
+[ext_resource type="PackedScene" uid="uid://6ifokwyywisk" path="res://game/scenes/characters/hero/hero.tscn" id="2_3u6ni"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d8jvq"]
+sky_top_color = Color(0.3216493, 0.5780844, 0.91639805, 1)
+sky_horizon_color = Color(0.5944159, 0.6636194, 0.7370558, 1)
+sky_curve = 0.13995507
+
+[sub_resource type="Sky" id="Sky_3u6ni"]
+sky_material = SubResource("ProceduralSkyMaterial_d8jvq")
+
+[sub_resource type="Environment" id="Environment_pd7nj"]
+background_mode = 2
+sky = SubResource("Sky_3u6ni")
+ambient_light_color = Color(0.36810192, 0.36810198, 0.36810192, 1)
+ambient_light_sky_contribution = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_ijluy"]
+size = Vector3(10, 1, 10)
+
+[node name="LevelPrototyping" type="Node3D" unique_id=1219768676]
+
+[node name="World" type="Node3D" parent="." unique_id=2022342948]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=1336412541]
+transform = Transform3D(1, 0, 0, 0, 0.71468025, 0.6994513, 0, -0.6994513, 0.71468025, 0, 5.9989853, 0.74894)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=1657820765]
+environment = SubResource("Environment_pd7nj")
+
+[node name="Ground" type="CSGMesh3D" parent="." unique_id=1286378237]
+use_collision = true
+mesh = SubResource("BoxMesh_ijluy")
+material = ExtResource("1_d8jvq")
+
+[node name="Bob" parent="." unique_id=3434954 instance=ExtResource("2_3u6ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52013016, 0)
