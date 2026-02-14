@@ -1,3 +1,6 @@
+// Copyright (c) 2026, and future.
+// Alejandro Morcillo Montejo - All Rights Reserved
+
 #pragma once
 #include "PlatformerCharacterBody3D.hpp"
 #include "godot_cpp/classes/spring_arm3d.hpp"

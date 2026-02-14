@@ -1,5 +1,8 @@
 
 
+// Copyright (c) 2026, and future.
+// Alejandro Morcillo Montejo - All Rights Reserved
+
 #include "register_types.hpp"
 
 #include <gdextension_interface.h>
