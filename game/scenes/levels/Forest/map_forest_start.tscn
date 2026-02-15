@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b85a1b8u2ri78"]
+
+[ext_resource type="PackedScene" uid="uid://ceoxckkht4ule" path="res://game/models/environment/kaykit/forest/Color1/Hill_2x2x2_Color1.fbx" id="1_fdqng"]
+[ext_resource type="MeshLibrary" uid="uid://dydvnvbn1o7yq" path="res://game/meshlibs/environment/forest/color1/meshlib_forest_color1.meshlib" id="1_uwuxi"]
+
+[node name="Node3D" type="Node3D" unique_id=1889585711]
+
+[node name="Hill_2x2x2_Color1" parent="." unique_id=2050689399 instance=ExtResource("1_fdqng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3215351, 0, 0.054700375)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1499549119]
+mesh_library = ExtResource("1_uwuxi")
+data = {
+"cells": PackedInt32Array(2, 65535, 1, 3, 65534, 1, 4, 65533, 1, 4, 65532, 1, 5, 65532, 1, 5, 65533, 1, 6, 65533, 1, 6, 65534, 1, 2, 65534, 1)
+}

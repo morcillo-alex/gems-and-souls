@@ -1,0 +1,901 @@
+[gd_scene format=4 uid="uid://bdw7ggfkvvxux"]
+
+[ext_resource type="Texture2D" uid="uid://d4bpgrpfwlueo" path="res://game/models/environment/kaykit/forest/Color1/forest_texture.png" id="1_0e11k"]
+[ext_resource type="PackedScene" uid="uid://de4qcm81263wf" path="res://game/models/environment/kaykit/forest/Color1/Bush_1_C_Color1.fbx" id="3_7iawy"]
+[ext_resource type="PackedScene" uid="uid://biqjb8tfobsin" path="res://game/models/environment/kaykit/forest/Color1/Bush_1_D_Color1.fbx" id="4_g777t"]
+[ext_resource type="PackedScene" uid="uid://wbbj2bvyyvg" path="res://game/models/environment/kaykit/forest/Color1/Bush_1_E_Color1.fbx" id="5_o705v"]
+[ext_resource type="PackedScene" uid="uid://b6uyvfl88wsow" path="res://game/models/environment/kaykit/forest/Color1/Bush_1_F_Color1.fbx" id="6_7ahui"]
+[ext_resource type="PackedScene" uid="uid://utunhr27ja06" path="res://game/models/environment/kaykit/forest/Color1/Bush_1_G_Color1.fbx" id="7_0su1y"]
+[ext_resource type="PackedScene" uid="uid://c2x2sskwdrbdn" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_A_Color1.fbx" id="8_3alrv"]
+[ext_resource type="PackedScene" uid="uid://cpnrhu8gfkfrg" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_B_Color1.fbx" id="9_8ojjm"]
+[ext_resource type="PackedScene" uid="uid://bmqlm2ymvp57v" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_C_Color1.fbx" id="10_rj6nm"]
+[ext_resource type="PackedScene" uid="uid://bx31xv55tli0q" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_D_Color1.fbx" id="11_kri3y"]
+[ext_resource type="PackedScene" uid="uid://dxy0e58vly5h" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_E_Color1.fbx" id="12_vetbi"]
+[ext_resource type="PackedScene" uid="uid://y04ko4opa0jh" path="res://game/models/environment/kaykit/forest/Color1/Bush_2_F_Color1.fbx" id="13_tje0h"]
+[ext_resource type="PackedScene" uid="uid://bgor40ewl7ikf" path="res://game/models/environment/kaykit/forest/Color1/Bush_3_A_Color1.fbx" id="14_8mhpo"]
+[ext_resource type="PackedScene" uid="uid://c155ocs52y1ig" path="res://game/models/environment/kaykit/forest/Color1/Bush_3_B_Color1.fbx" id="15_2v5bf"]
+[ext_resource type="PackedScene" uid="uid://b0ua0d1uk15io" path="res://game/models/environment/kaykit/forest/Color1/Bush_3_C_Color1.fbx" id="16_v74fa"]
+[ext_resource type="PackedScene" uid="uid://dyjntsjyvfirv" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_A_Color1.fbx" id="17_7178c"]
+[ext_resource type="PackedScene" uid="uid://dohp6t5mhlpo" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_B_Color1.fbx" id="18_f8dmf"]
+[ext_resource type="PackedScene" uid="uid://bx3p7so6qfh75" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_C_Color1.fbx" id="19_tkk8t"]
+[ext_resource type="PackedScene" uid="uid://bhj7fnudpg65j" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_D_Color1.fbx" id="20_frr88"]
+[ext_resource type="PackedScene" uid="uid://b1xw7e8qltq1g" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_E_Color1.fbx" id="21_47tmp"]
+[ext_resource type="PackedScene" uid="uid://ciorb4txcpf63" path="res://game/models/environment/kaykit/forest/Color1/Bush_4_F_Color1.fbx" id="22_gks0d"]
+[ext_resource type="PackedScene" uid="uid://briekggtqclqo" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_A_Color1.fbx" id="23_pfuqy"]
+[ext_resource type="PackedScene" uid="uid://ckiak1c4mcdm7" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_A_Singlesided_Color1.fbx" id="24_xuymw"]
+[ext_resource type="PackedScene" uid="uid://ln4j0j1jfy4f" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_B_Color1.fbx" id="25_u6v60"]
+[ext_resource type="PackedScene" uid="uid://ep51m4nj4w18" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_B_Singlesided_Color1.fbx" id="26_bjpeg"]
+[ext_resource type="PackedScene" uid="uid://cc80qawtqbmyi" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_C_Color1.fbx" id="27_wiict"]
+[ext_resource type="PackedScene" uid="uid://cab5ajblg570b" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_C_Singlesided_Color1.fbx" id="28_sypq1"]
+[ext_resource type="PackedScene" uid="uid://blw5kfn8avbhb" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_D_Color1.fbx" id="29_0364h"]
+[ext_resource type="PackedScene" uid="uid://cu6bsfavx4qhn" path="res://game/models/environment/kaykit/forest/Color1/Grass_1_D_Singlesided_Color1.fbx" id="30_hha7f"]
+[ext_resource type="PackedScene" uid="uid://qrmua6yqgs8n" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_A_Color1.fbx" id="31_xm4xj"]
+[ext_resource type="PackedScene" uid="uid://cfvoutm8v00vk" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_A_Singlesided_Color1.fbx" id="32_jmwh8"]
+[ext_resource type="PackedScene" uid="uid://dhgty0ylsavlr" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_B_Color1.fbx" id="33_mxy27"]
+[ext_resource type="PackedScene" uid="uid://bhsc2xltmmpya" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_B_Singlesided_Color1.fbx" id="34_2i7p0"]
+[ext_resource type="PackedScene" uid="uid://tmciqp6da8jw" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_C_Color1.fbx" id="35_311la"]
+[ext_resource type="PackedScene" uid="uid://bkx1e6xm1k56p" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_C_Singlesided_Color1.fbx" id="36_awqxo"]
+[ext_resource type="PackedScene" uid="uid://tweuvr48do0s" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_D_Color1.fbx" id="37_wgfm7"]
+[ext_resource type="PackedScene" uid="uid://py4i20kov0kq" path="res://game/models/environment/kaykit/forest/Color1/Grass_2_D_Singlesided_Color1.fbx" id="38_c7bhv"]
+[ext_resource type="PackedScene" uid="uid://ceoxckkht4ule" path="res://game/models/environment/kaykit/forest/Color1/Hill_2x2x2_Color1.fbx" id="39_6etho"]
+[ext_resource type="PackedScene" uid="uid://c4p1u01yqnnvp" path="res://game/models/environment/kaykit/forest/Color1/Hill_2x2x4_Color1.fbx" id="40_bqnp2"]
+[ext_resource type="PackedScene" uid="uid://b1o5k2nmka0fq" path="res://game/models/environment/kaykit/forest/Color1/Hill_2x2x8_Color1.fbx" id="41_adsbh"]
+[ext_resource type="PackedScene" uid="uid://bacimwmgqdr28" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x2x2_Color1.fbx" id="42_usi76"]
+[ext_resource type="PackedScene" uid="uid://cmm34hhal8hce" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x2x4_Color1.fbx" id="43_wyudx"]
+[ext_resource type="PackedScene" uid="uid://bt7dy3pprkca4" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x2x8_Color1.fbx" id="44_hqjsb"]
+[ext_resource type="PackedScene" uid="uid://dpk02stoxtxyw" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x4x2_Color1.fbx" id="45_mwtvs"]
+[ext_resource type="PackedScene" uid="uid://clo68orvqjitw" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x4x4_Color1.fbx" id="46_4kcnj"]
+[ext_resource type="PackedScene" uid="uid://lw5fimbbxqge" path="res://game/models/environment/kaykit/forest/Color1/Hill_4x4x8_Color1.fbx" id="47_ugykf"]
+[ext_resource type="PackedScene" uid="uid://befnxdjscbntm" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x4x2_Color1.fbx" id="48_wg6ff"]
+[ext_resource type="PackedScene" uid="uid://cvp3657whwxw6" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x4x4_Color1.fbx" id="49_rifck"]
+[ext_resource type="PackedScene" uid="uid://bscnpov2g67rx" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x4x8_Color1.fbx" id="50_ku3my"]
+[ext_resource type="PackedScene" uid="uid://dm1oya1c36342" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x8x2_Color1.fbx" id="51_wl8bk"]
+[ext_resource type="PackedScene" uid="uid://c1jyynrrqrpam" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x8x4_Color1.fbx" id="52_diqxf"]
+[ext_resource type="PackedScene" uid="uid://dojlq7ycbrgjs" path="res://game/models/environment/kaykit/forest/Color1/Hill_8x8x8_Color1.fbx" id="53_qgccw"]
+[ext_resource type="PackedScene" uid="uid://dkhx8u2cea4he" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x6x2_Color1.fbx" id="54_jc42v"]
+[ext_resource type="PackedScene" uid="uid://bnxywbl410wgj" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x6x4_Color1.fbx" id="55_uny7h"]
+[ext_resource type="PackedScene" uid="uid://ctou232fm6nsk" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x6x8_Color1.fbx" id="56_4ouq2"]
+[ext_resource type="PackedScene" uid="uid://mde6qpb0i4wc" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x12x2_Color1.fbx" id="57_8b5mk"]
+[ext_resource type="PackedScene" uid="uid://ctqv03mex15jk" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x12x4_Color1.fbx" id="58_5cwrh"]
+[ext_resource type="PackedScene" uid="uid://7bc8aqg0py0c" path="res://game/models/environment/kaykit/forest/Color1/Hill_12x12x8_Color1.fbx" id="59_tqmfj"]
+[ext_resource type="PackedScene" uid="uid://u2oxpkdu08pl" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_A_InnerCorner_Color1.fbx" id="60_g7fvt"]
+[ext_resource type="PackedScene" uid="uid://d0ui8654cr2kq" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_A_OuterCorner_Color1.fbx" id="61_ve1h5"]
+[ext_resource type="PackedScene" uid="uid://cqeyx0cnvkg0o" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_B_Side_Color1.fbx" id="62_sa5s7"]
+[ext_resource type="PackedScene" uid="uid://83pun8yfm2t1" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_C_InnerCorner_Color1.fbx" id="63_s8ulv"]
+[ext_resource type="PackedScene" uid="uid://ded3hlefbnn7r" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_C_OuterCorner_Color1.fbx" id="64_8rb67"]
+[ext_resource type="PackedScene" uid="uid://do44qoxsr0p0e" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_D_Side_Color1.fbx" id="65_kqf4j"]
+[ext_resource type="PackedScene" uid="uid://cvimelfwey4gn" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_E_Color1.fbx" id="66_eo2em"]
+[ext_resource type="PackedScene" uid="uid://cd12rhha3uryh" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_F_Side_Color1.fbx" id="67_xcfi3"]
+[ext_resource type="PackedScene" uid="uid://jpya6pov4m62" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_G_InnerCorner_Color1.fbx" id="68_714kj"]
+[ext_resource type="PackedScene" uid="uid://4n84h7fetqmv" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_G_OuterCorner_Color1.fbx" id="69_g2gsu"]
+[ext_resource type="PackedScene" uid="uid://t31l0pwby0rr" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_H_Side_Color1.fbx" id="70_ksj4q"]
+[ext_resource type="PackedScene" uid="uid://ccx0x3g3cd28u" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_I_InnerCorner_Color1.fbx" id="71_8d54x"]
+[ext_resource type="PackedScene" uid="uid://c2o70oy2qjx1s" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_I_OuterCorner_Color1.fbx" id="72_tvnik"]
+[ext_resource type="PackedScene" uid="uid://cp4k2j4xd1pfm" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_A_InnerCorner_Color1.fbx" id="73_0nj86"]
+[ext_resource type="PackedScene" uid="uid://det0d3qihkmwy" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_A_OuterCorner_Color1.fbx" id="74_xlbbl"]
+[ext_resource type="PackedScene" uid="uid://cyqxu0lxihyau" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_B_Side_Color1.fbx" id="75_rpjio"]
+[ext_resource type="PackedScene" uid="uid://dan40q01jkrbc" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_C_InnerCorner_Color1.fbx" id="76_ix50w"]
+[ext_resource type="PackedScene" uid="uid://cfy0ghtmdxh1" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_C_OuterCorner_Color1.fbx" id="77_w8afs"]
+[ext_resource type="PackedScene" uid="uid://dvbs6ftl7i5wx" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_D_Side_Color1.fbx" id="78_rpgxt"]
+[ext_resource type="PackedScene" uid="uid://dpv4yi4x6kxss" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_E_Color1.fbx" id="79_vokte"]
+[ext_resource type="PackedScene" uid="uid://b2rwipaxfgeob" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_F_Side_Color1.fbx" id="80_0k2vi"]
+[ext_resource type="PackedScene" uid="uid://dk0do4ncvd16p" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_G_InnerCorner_Color1.fbx" id="81_yvex1"]
+[ext_resource type="PackedScene" uid="uid://cuguqfp2tkodb" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_G_OuterCorner_Color1.fbx" id="82_0tkry"]
+[ext_resource type="PackedScene" uid="uid://ladothjne3mm" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_H_Side_Color1.fbx" id="83_mvu0q"]
+[ext_resource type="PackedScene" uid="uid://bwg7vqe4wolqm" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_I_InnerCorner_Color1.fbx" id="84_umnne"]
+[ext_resource type="PackedScene" uid="uid://l6fand1pihl4" path="res://game/models/environment/kaykit/forest/Color1/Hill_Cliff_Tall_I_OuterCorner_Color1.fbx" id="85_pcmgt"]
+[ext_resource type="PackedScene" uid="uid://pspf5g5vjnwf" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_A_InnerCorner_Color1.fbx" id="86_v5jjw"]
+[ext_resource type="PackedScene" uid="uid://bgl7epilg8kx8" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_A_OuterCorner_Color1.fbx" id="87_8mvxs"]
+[ext_resource type="PackedScene" uid="uid://bkynmnn1xdmkl" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_B_Side_Color1.fbx" id="88_1avcm"]
+[ext_resource type="PackedScene" uid="uid://bqc4cwkiojru8" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_C_InnerCorner_Color1.fbx" id="89_momtc"]
+[ext_resource type="PackedScene" uid="uid://jj3af8su73os" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_C_OuterCorner_Color1.fbx" id="90_lqhwy"]
+[ext_resource type="PackedScene" uid="uid://bs4n55d3q2ven" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_D_Side_Color1.fbx" id="91_hpgdc"]
+[ext_resource type="PackedScene" uid="uid://dyqqybigx2cs8" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_E_Cap_Color1.fbx" id="92_qi8i8"]
+[ext_resource type="PackedScene" uid="uid://c4rk3imljab46" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_E_Center_Color1.fbx" id="93_wemsb"]
+[ext_resource type="PackedScene" uid="uid://b1qkcx6u7tva" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_F_Side_Color1.fbx" id="94_totny"]
+[ext_resource type="PackedScene" uid="uid://b1mlnas4iq46" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_G_InnerCorner_Color1.fbx" id="95_q0ads"]
+[ext_resource type="PackedScene" uid="uid://tt00pdgwni77" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_G_OuterCorner_Color1.fbx" id="96_6jk7d"]
+[ext_resource type="PackedScene" uid="uid://bnwhalm835n6m" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_H_Side_Color1.fbx" id="97_xl3h3"]
+[ext_resource type="PackedScene" uid="uid://bfqpsoevsuxgy" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_I_InnerCorner_Color1.fbx" id="98_aus41"]
+[ext_resource type="PackedScene" uid="uid://bo47mlk5vkwv6" path="res://game/models/environment/kaykit/forest/Color1/Hill_Top_I_OuterCorner_Color1.fbx" id="99_sysgb"]
+[ext_resource type="PackedScene" uid="uid://bvnhq0o0os1xs" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_A_Color1.fbx" id="100_2bchk"]
+[ext_resource type="PackedScene" uid="uid://dc75l7a31d7ih" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_B_Color1.fbx" id="101_q5sqb"]
+[ext_resource type="PackedScene" uid="uid://ddx6kcrevejge" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_C_Color1.fbx" id="102_7ahqv"]
+[ext_resource type="PackedScene" uid="uid://bp4tgiv2gky7e" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_D_Color1.fbx" id="103_8b05n"]
+[ext_resource type="PackedScene" uid="uid://bjtot5rwiwy0h" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_E_Color1.fbx" id="104_fsx36"]
+[ext_resource type="PackedScene" uid="uid://b2o0ygxyrjn8m" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_F_Color1.fbx" id="105_c7e8w"]
+[ext_resource type="PackedScene" uid="uid://cids6s4buhu36" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_G_Color1.fbx" id="106_y6ur1"]
+[ext_resource type="PackedScene" uid="uid://dkjjndlutgfm0" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_H_Color1.fbx" id="107_03mn3"]
+[ext_resource type="PackedScene" uid="uid://c4ap34nrm5gpa" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_I_Color1.fbx" id="108_j64wu"]
+[ext_resource type="PackedScene" uid="uid://dyh4tm0eu60q5" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_J_Color1.fbx" id="109_rnqwc"]
+[ext_resource type="PackedScene" uid="uid://c67yugy8gsvhw" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_K_Color1.fbx" id="110_fvjqm"]
+[ext_resource type="PackedScene" uid="uid://yq6giuh61ikt" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_L_Color1.fbx" id="111_5r14b"]
+[ext_resource type="PackedScene" uid="uid://dkl5il8k7551g" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_M_Color1.fbx" id="112_impvr"]
+[ext_resource type="PackedScene" uid="uid://cl2ha0jxqrqmg" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_N_Color1.fbx" id="113_1ak17"]
+[ext_resource type="PackedScene" uid="uid://dh2ayhuor8nq6" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_O_Color1.fbx" id="114_887e3"]
+[ext_resource type="PackedScene" uid="uid://chqosgkhxlh4r" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_P_Color1.fbx" id="115_htyvr"]
+[ext_resource type="PackedScene" uid="uid://c6ngnok7h62vr" path="res://game/models/environment/kaykit/forest/Color1/Rock_1_Q_Color1.fbx" id="116_4pg2r"]
+[ext_resource type="PackedScene" uid="uid://doh6rycxq7bfo" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_A_Color1.fbx" id="117_bxydg"]
+[ext_resource type="PackedScene" uid="uid://d2bpbfgd3p7sh" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_B_Color1.fbx" id="118_p5wyc"]
+[ext_resource type="PackedScene" uid="uid://c3xb3fmhies5d" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_C_Color1.fbx" id="119_4pig3"]
+[ext_resource type="PackedScene" uid="uid://bhhqljlnc6b2w" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_D_Color1.fbx" id="120_6isbw"]
+[ext_resource type="PackedScene" uid="uid://vl017m0l4dfn" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_E_Color1.fbx" id="121_iwc5k"]
+[ext_resource type="PackedScene" uid="uid://cvgc6eybk3rec" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_F_Color1.fbx" id="122_scku6"]
+[ext_resource type="PackedScene" uid="uid://cvewa7p4k1gd8" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_G_Color1.fbx" id="123_0rscj"]
+[ext_resource type="PackedScene" uid="uid://uds2y3yrv2yn" path="res://game/models/environment/kaykit/forest/Color1/Rock_2_H_Color1.fbx" id="124_823yf"]
+[ext_resource type="PackedScene" uid="uid://dl42xyubyl0s6" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_A_Color1.fbx" id="125_t3t60"]
+[ext_resource type="PackedScene" uid="uid://bsprny1rrcqh3" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_B_Color1.fbx" id="126_116pn"]
+[ext_resource type="PackedScene" uid="uid://720hsmxl126o" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_C_Color1.fbx" id="127_xwqa5"]
+[ext_resource type="PackedScene" uid="uid://dvh6bmrke6k7f" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_D_Color1.fbx" id="128_gvrv7"]
+[ext_resource type="PackedScene" uid="uid://7bilh1bksm47" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_E_Color1.fbx" id="129_odmo3"]
+[ext_resource type="PackedScene" uid="uid://dqyqspaca4tit" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_F_Color1.fbx" id="130_eeunf"]
+[ext_resource type="PackedScene" uid="uid://dcnpv20w6u6cx" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_G_Color1.fbx" id="131_b7apt"]
+[ext_resource type="PackedScene" uid="uid://cih7ycwl86erc" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_H_Color1.fbx" id="132_4hf10"]
+[ext_resource type="PackedScene" uid="uid://bay1ri2mtq7lw" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_I_Color1.fbx" id="133_ojgfn"]
+[ext_resource type="PackedScene" uid="uid://rhguh27q0jup" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_J_Color1.fbx" id="134_kytq8"]
+[ext_resource type="PackedScene" uid="uid://dsbi1nygdr7r1" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_K_Color1.fbx" id="135_er8cn"]
+[ext_resource type="PackedScene" uid="uid://c3w70ek4owy54" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_L_Color1.fbx" id="136_nvxra"]
+[ext_resource type="PackedScene" uid="uid://dncrp2ecl6llb" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_M_Color1.fbx" id="137_m2yuo"]
+[ext_resource type="PackedScene" uid="uid://cv0gvf17akug4" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_N_Color1.fbx" id="138_nq0m6"]
+[ext_resource type="PackedScene" uid="uid://co8e7mqc3w3p5" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_O_Color1.fbx" id="139_y2ewo"]
+[ext_resource type="PackedScene" uid="uid://1aykt501nj2h" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_P_Color1.fbx" id="140_1hudp"]
+[ext_resource type="PackedScene" uid="uid://y7ek8e7i7xkh" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_Q_Color1.fbx" id="141_mlj52"]
+[ext_resource type="PackedScene" uid="uid://c5hfwt2bdn5sw" path="res://game/models/environment/kaykit/forest/Color1/Rock_3_R_Color1.fbx" id="142_dst33"]
+[ext_resource type="PackedScene" uid="uid://r53ii5mhvxyj" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_A_Color1.fbx" id="143_3g30d"]
+[ext_resource type="PackedScene" uid="uid://1v7n7kdl5x6t" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_B_Color1.fbx" id="144_ogwox"]
+[ext_resource type="PackedScene" uid="uid://d1jpl111khd4o" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_C_Color1.fbx" id="145_hk8vv"]
+[ext_resource type="PackedScene" uid="uid://crhr5busw8k8m" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_D_Color1.fbx" id="146_pkb26"]
+[ext_resource type="PackedScene" uid="uid://dfolda50gvatm" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_E_Color1.fbx" id="147_yfiqi"]
+[ext_resource type="PackedScene" uid="uid://0fbc8rkxktd4" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_F_Color1.fbx" id="148_ji6yc"]
+[ext_resource type="PackedScene" uid="uid://cehn245dhm8kj" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_G_Color1.fbx" id="149_6htr7"]
+[ext_resource type="PackedScene" uid="uid://dfw1x4vvkq3p" path="res://game/models/environment/kaykit/forest/Color1/Rock_4_H_Color1.fbx" id="150_gyqtl"]
+[ext_resource type="PackedScene" uid="uid://djslipnhuxoa1" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_A_Color1.fbx" id="151_g71a6"]
+[ext_resource type="PackedScene" uid="uid://ddytyniwh7o11" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_B_Color1.fbx" id="152_g8xch"]
+[ext_resource type="PackedScene" uid="uid://m5s82eblb3k5" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_C_Color1.fbx" id="153_kyvqf"]
+[ext_resource type="PackedScene" uid="uid://chdclnu7oyj7y" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_D_Color1.fbx" id="154_hpbd0"]
+[ext_resource type="PackedScene" uid="uid://chya3kfj383uq" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_E_Color1.fbx" id="155_b4ksn"]
+[ext_resource type="PackedScene" uid="uid://dxsd8bwonq41x" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_F_Color1.fbx" id="156_fe5pu"]
+[ext_resource type="PackedScene" uid="uid://dlgtyhwau2vgf" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_G_Color1.fbx" id="157_a223f"]
+[ext_resource type="PackedScene" uid="uid://xo3ordf6acw" path="res://game/models/environment/kaykit/forest/Color1/Rock_5_H_Color1.fbx" id="158_7cfq2"]
+[ext_resource type="PackedScene" uid="uid://rfe5w6skw2s0" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_A_Color1.fbx" id="159_r6bw5"]
+[ext_resource type="PackedScene" uid="uid://dl73h5eqpdn88" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_B_Color1.fbx" id="160_b4frr"]
+[ext_resource type="PackedScene" uid="uid://cmcdvtu3okqyp" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_C_Color1.fbx" id="161_8buv3"]
+[ext_resource type="PackedScene" uid="uid://bbonc6emokmas" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_D_Color1.fbx" id="162_qgyou"]
+[ext_resource type="PackedScene" uid="uid://ci2ntdfqjhrmf" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_E_Color1.fbx" id="163_x3f6w"]
+[ext_resource type="PackedScene" uid="uid://bwjgsqtm0xosf" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_F_Color1.fbx" id="164_7yi4a"]
+[ext_resource type="PackedScene" uid="uid://c3046c1l8ej6u" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_G_Color1.fbx" id="165_sc36o"]
+[ext_resource type="PackedScene" uid="uid://b8rnpumw2xifs" path="res://game/models/environment/kaykit/forest/Color1/Rock_6_H_Color1.fbx" id="166_ygxot"]
+[ext_resource type="PackedScene" uid="uid://btq7pfbi84vyt" path="res://game/models/environment/kaykit/forest/Color1/Tree_1_A_Color1.fbx" id="167_4mnf8"]
+[ext_resource type="PackedScene" uid="uid://prhtrvvan8ix" path="res://game/models/environment/kaykit/forest/Color1/Tree_1_B_Color1.fbx" id="168_8di36"]
+[ext_resource type="PackedScene" uid="uid://cilg8y84pf805" path="res://game/models/environment/kaykit/forest/Color1/Tree_1_C_Color1.fbx" id="169_ynurf"]
+[ext_resource type="PackedScene" uid="uid://dsjc1mg4rj5lk" path="res://game/models/environment/kaykit/forest/Color1/Tree_2_A_Color1.fbx" id="170_0q1yo"]
+[ext_resource type="PackedScene" uid="uid://f57ntd0ewy6n" path="res://game/models/environment/kaykit/forest/Color1/Tree_2_B_Color1.fbx" id="171_exx5g"]
+[ext_resource type="PackedScene" uid="uid://c4sbej7hkgtho" path="res://game/models/environment/kaykit/forest/Color1/Tree_2_C_Color1.fbx" id="172_6q7qd"]
+[ext_resource type="PackedScene" uid="uid://bkn861cih2603" path="res://game/models/environment/kaykit/forest/Color1/Tree_2_D_Color1.fbx" id="173_6tfcb"]
+[ext_resource type="PackedScene" uid="uid://cvw6weuy17hun" path="res://game/models/environment/kaykit/forest/Color1/Tree_2_E_Color1.fbx" id="174_600fo"]
+[ext_resource type="PackedScene" uid="uid://df47n7brblnue" path="res://game/models/environment/kaykit/forest/Color1/Tree_3_A_Color1.fbx" id="175_bv75g"]
+[ext_resource type="PackedScene" uid="uid://colsuldtnlse6" path="res://game/models/environment/kaykit/forest/Color1/Tree_3_B_Color1.fbx" id="176_ddn8s"]
+[ext_resource type="PackedScene" uid="uid://bx0ymuats2okh" path="res://game/models/environment/kaykit/forest/Color1/Tree_3_C_Color1.fbx" id="177_8ikcy"]
+[ext_resource type="PackedScene" uid="uid://b30bxq3geab4h" path="res://game/models/environment/kaykit/forest/Color1/Tree_4_A_Color1.fbx" id="178_eki3e"]
+[ext_resource type="PackedScene" uid="uid://whj8h73xjqyg" path="res://game/models/environment/kaykit/forest/Color1/Tree_4_B_Color1.fbx" id="179_h3bfv"]
+[ext_resource type="PackedScene" uid="uid://c7ysemp7c6f13" path="res://game/models/environment/kaykit/forest/Color1/Tree_4_C_Color1.fbx" id="180_b24pv"]
+[ext_resource type="PackedScene" uid="uid://b273rvmlc4tyi" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_A_Color1.fbx" id="181_mklwi"]
+[ext_resource type="PackedScene" uid="uid://c7r2x440vnlhv" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_B_Color1.fbx" id="182_gyvta"]
+[ext_resource type="PackedScene" uid="uid://c2wwy28mred31" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_C_Color1.fbx" id="183_y7soe"]
+[ext_resource type="PackedScene" uid="uid://bcfd64vgyobi3" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_D_Color1.fbx" id="184_lrsb3"]
+[ext_resource type="PackedScene" uid="uid://bmg00kwsnqrey" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_E_Color1.fbx" id="185_5pg2b"]
+[ext_resource type="PackedScene" uid="uid://ciqq7881lwku7" path="res://game/models/environment/kaykit/forest/Color1/Tree_5_F_Color1.fbx" id="186_y2ovp"]
+[ext_resource type="PackedScene" uid="uid://cpx6uek2s5pox" path="res://game/models/environment/kaykit/forest/Color1/Tree_6_A_Color1.fbx" id="187_7b2rg"]
+[ext_resource type="PackedScene" uid="uid://dc7jp31ooquhn" path="res://game/models/environment/kaykit/forest/Color1/Tree_6_B_Color1.fbx" id="188_jvyku"]
+[ext_resource type="PackedScene" uid="uid://cjtflmyj1m2k5" path="res://game/models/environment/kaykit/forest/Color1/Tree_6_C_Color1.fbx" id="189_28chs"]
+[ext_resource type="PackedScene" uid="uid://574tyovf7mg5" path="res://game/models/environment/kaykit/forest/Color1/Tree_7_A_Color1.fbx" id="190_la4s7"]
+[ext_resource type="PackedScene" uid="uid://dciujiprqpubm" path="res://game/models/environment/kaykit/forest/Color1/Tree_7_B_Color1.fbx" id="191_pooe0"]
+[ext_resource type="PackedScene" uid="uid://cfagqr2t1yq3b" path="res://game/models/environment/kaykit/forest/Color1/Tree_7_C_Color1.fbx" id="192_jscxk"]
+[ext_resource type="PackedScene" uid="uid://b3jxwbywwsefc" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_1_A_Color1.fbx" id="193_85bbk"]
+[ext_resource type="PackedScene" uid="uid://exrf80s0kikl" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_1_B_Color1.fbx" id="194_6ufvd"]
+[ext_resource type="PackedScene" uid="uid://bfuh2u2fn3bs4" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_1_C_Color1.fbx" id="195_ggth4"]
+[ext_resource type="PackedScene" uid="uid://c16h0xtv63kkj" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_2_A_Color1.fbx" id="196_kx4by"]
+[ext_resource type="PackedScene" uid="uid://c8tl2oo3kwvin" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_2_B_Color1.fbx" id="197_qu6cd"]
+[ext_resource type="PackedScene" uid="uid://bhn8whc4ob7k5" path="res://game/models/environment/kaykit/forest/Color1/Tree_Bare_2_C_Color1.fbx" id="198_f5h0t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sj40d"]
+resource_name = "forest"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0e11k")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_57l2j"]
+_surfaces = [{
+"aabb": AABB(-0.0013358834, -0.0011704315, -2.9310715e-05, 0.002671767, 0.002340863, 0.0022665348),
+"format": 34359742465,
+"index_count": 216,
+"index_data": PackedByteArray("FAAVAAIAAgAFABQAFgAUAAUABQACAAgABQAJABYACQAFAAgAAwAIAAIAFgAJAAoACgAJAAgAAwAHAAgABwAKAAgAFwADAAIABwADABcAAgAVABcACgAHABgAFwAYAAcACgAZABYAGAAZAAoAGAAXABoAGgAXABUAGQAYAA0AGgANABgAGwAWABkAFAAWABsADQAOABkAGQAOABsAGwALABQAFQAUAAsAEQAbAA4ACwAbABEACwAMABUAFQAMABoADQAaAAEAAQAaAAwADgANABwAAQAcAA0AHAAGAA4ADgAGABEADAALAAAAEQAAAAsADAAQAAEAAAAQAAwAHQABABAAHgAQAAAAHgAdABAAHwAAABEAAAAfAB4AIAAfABEAIAARAAYAHgAfACEAIQAfACAAIQAEAB4AHQAeAAQADwAgAAYADwAGABwAIAASACEAEgAgAA8AIgAEACEAIgAhABIABAAjAB0AIgAjAAQADwAkABIAIgASACQAIwAiACUAIgAkACUAHQAjACUAJQAkAA8AJQATAB0ADwATACUAEwAPABwAHQATAAEAEwAcAAEA"),
+"lods": [0.0004899575, PackedByteArray("CwAMAAIAAgAFAAsABQACAAgACQALAAUACQAFAAgAAwAIAAIAAgAMAAMAAwAHAAgACgAJAAgABwAKAAgAAwANAAcACgAHAA0AAQADAAwADQADAAEADQAOAAoACgAOAAkAAQAPAA0ADgANAA8ADAAQAAEAEQAJAA4ACwAJABEADAALAAAAEQAAAAsAAAAQAAwADgAGABEABgAAABEADwAGAA4AEAAAAAQAEgAAAAYAEgAGAA8AEgAEAAAAEAAEABMABAASABMAEwASAA8AEAATAAEAEwAPAAEA"), 0.0016143799, PackedByteArray("AAABAAIAAgABAAMAAQAAAAQAAgAFAAAAAQAEAAYABAAAAAYABwADAAEAAQAGAAcAAwAIAAIABQACAAgAAwAHAAgACQAAAAUAAAAJAAYACQAFAAgABwAGAAoACgAGAAkABwAKAAgACgAJAAgA")],
+"name": "forest",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("r5gjurqImLqAXAI6pJgjur+ImDp8XAI6L2suukrgPC9d1wg78Didua2iFjp6vwk72hEjuiqZq7no5lw3+jidua2iFrp6vwk70hivOgZSwK9vXAI6+DidOayiFjp6vwk7PCabrGZEMa5knhI78DidOa+iFrp6vwk7MmsuOp8fZa9d1wg75nEguidpmbpPa4460TSuumbtDjB7aY465HEgOidpmTpNa4460zSuOmYj1q96aY46XOqEOtEgEDrUgG85zxivupoEIjCAXAI6o5gjOr+ImLp9XAI62REjOjyZq7mF31w36PlFL6AImToJgW85ylsAujhsd7oWQd06fb+Muq6spy93odw6v1sAOjtsd7obQd06wVsAujpsdzobQd06yFsAOjdsdzoWQd06f7+MOgZxoa93odw63XEguilpmTpTa4462nEgOippmbpTa446rJgjOryImDpuXAI6WOqEutogEDpSgW85W+qEus4gELp9gW855gHdr6EImbpYgW85WuqEOtsgELo0gW85G0BhrxxsOboR5Fw3+9glLS1pba5I4PW31xEjujiZqzl/41w32hEjOiqZqzkj2Fw3u668LhhsOTqu3Fw3")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o3go6"]
+resource_name = "Bush_1_A_Color1"
+_surfaces = [{
+"aabb": AABB(-0.0013358834, -0.0011704315, -2.9310715e-05, 0.002671767, 0.002340863, 0.0022665348),
+"attribute_data": PackedByteArray("YDMyPeBUHj5gMzI94FQePqBjGz2AmIM9YEhTPYCDfT1gSFM9gIN9PfDEjj2Ag3098MSOPYCDfT2okM094FQePgi3qj2AmIM98MSOPYCDPT0It6o9ADFHPZhDmT3gKAg98MSOPYCDPT0wHJI9YG4NPWBIUz2Agz09kGh4PeAoCD1gSFM9gIM9PWCaTD3gbQ09oGMbPQAxRz2QSz494CgIPWAzMj3gVD4+kF8rPQDDXD6okM094FQ+PmAzMj3gVD4+8HwyPQDL9z2g1aw8AMv3PahPnz3gVB4+wGCrPOBUHj64M809AMv3PbgiuD3IlDE+kGh4PciUMT6oKp89AMv3PVC5oj0cw1w+wGCrPOBUPj6QaHg9yJRRPrgiuD3IlFE+qE+fPeBUPj6wdkE9YGurPQC+7zy4eKs9gK2XPWBrqz2oKp89AMv3PRB5vD24eKs9gK2XPWBrqz24Irg9yJQxPpBoeD3IlDE+wIsAPciUMT6oT5894FQePtCMAD3IlDE+8HwyPQDL9z2wdkE9YGurPcCLAD3IlFE+0IwAPciUUT6QaHg9yJRRPpBoeD0cw1w+kF8rPRzDXD64Irg9yJRRPpBoeD2M0l8+ULmiPRzDXD6QaHg9HMNcPqhPnz3gVD4+"),
+"format": 34359742487,
+"index_count": 216,
+"index_data": PackedByteArray("JQAmAAIAAgAEACUAJwAlAAQABAAGACcAJwAGAAgAJQAnACgACAApACcAKAAnACkAKgApAAgACAAFACoAKQAcACgAKAAYACUAJgAlABgAGAAoABoAGgAoABwAGAAZACYAHAAHABoAKwAaAAcAGgAAABgALAAAABoAGQAYAAAAAAAbABkALQAbAAAALgAHABwAHQAHAC4AHAAfAC4AHwAcACkAKQAqAB8AAQAuAB8AHgAuAAEAGQAbAAEALwABABsAAQAwABkAHwAwAAEAMAAfACoAJgAZADAAKgAxADAAMAAxACYAMQAqAAUAAgAmADEABQADADEAMQADAAIACQAKAAsACgAMAA0ADgAJAA8ADAAQAA8ADgARABIAEAASABMAMgAzACEAFwA0ADIAMgA0ADUAMwAyABUANQAVADIAFQA2ADMANQA0ADcANwA0ACQAOAAVADUAOAA2ABUANwAgADUAOAA1ACAAIAA3ACMAIwA3ABYAOAAgADkAIwA5ACAANgA4ADoAOAA5ADoAOgA5ACMAMwA2ADoAIwAiADoAOgAiADMAIgAjADsAMwAiABQA"),
+"lods": [0.0004899575, PackedByteArray("GAAZAAIAAgAEABgABgAYAAQAAgAZAAMAGAAGABoAGQAYAAAAGgAAABgAAAAbABkAGQAbAAEAAQADABkAGgAGABwAHAAHABoACAAcAAYAHQAHABwAHgAdAAEAHwAcAAgAHAAfAB0AAQAdAB8AHwADAAEACAAFAB8AAwAfAAUACQAKAAsACgAMAA0ADgAJAA8ADAAQAA8ADgARABIAEAASABMAIAAVABcAIQAXABUAIQAVACIAFQAgACIAIQAiABQAIgAgACMAIAAWACMAIAAXABYAFgAXACQA"), 0.0016143799, PackedByteArray("AAABAAIAAgABAAMAAgAEAAAABQADAAEABgAAAAQAAQAHAAUAAAAGAAcABQAHAAgACAAHAAYACQAKAAsACgAMAA0ADgAJAA8ADAAQAA8ADgARABIAEAASABMAFAAVABYAFQAXABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_sj40d"),
+"name": "forest",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("r5gjurqImLqAXAI6pJgjur+ImDp8XAI6L2suukrgPC9d1wg78Didua2iFjp6vwk7+jidua2iFrp6vwk7+DidOayiFjp6vwk78DidOa+iFrp6vwk70hivOgZSwK9vXAI6MmsuOp8fZa9d1wg7+DidOayiFjp6vwk7MmsuOp8fZa9d1wg7PCabrGZEMa5knhI78DidOa+iFrp6vwk7PCabrGZEMa5knhI78Didua2iFjp6vwk7PCabrGZEMa5knhI7+jidua2iFrp6vwk7PCabrGZEMa5knhI7L2suukrgPC9d1wg7PCabrGZEMa5knhI7pJgjur+ImDp8XAI62hEjuiqZq7no5lw30hivOgZSwK9vXAI6r5gjurqImLqAXAI65nEguidpmbpPa4460TSuumbtDjB7aY46o5gjOr+ImLp9XAI6zxivupoEIjCAXAI60zSuOmYj1q96aY46XOqEOtEgEDrUgG856PlFL6AImToJgW855HEgOidpmTpNa4462REjOjyZq7mF31w3zxivupoEIjCAXAI66PlFL6AImToJgW85XOqEOtEgEDrUgG85o5gjOr+ImLp9XAI6ylsAujhsd7oWQd06fb+Muq6spy93odw6v1sAOjtsd7obQd062nEgOippmbpTa446f7+MOgZxoa93odw6yFsAOjdsdzoWQd06WuqEOtsgELo0gW855gHdr6EImbpYgW85W+qEus4gELp9gW85rJgjOryImDpuXAI6WOqEutogEDpSgW853XEguilpmTpTa446wVsAujpsdzobQd06W+qEus4gELp9gW85WOqEutogEDpSgW855gHdr6EImbpYgW85G0BhrxxsOboR5Fw31xEjujiZqzl/41w3WuqEOtsgELo0gW85+9glLS1pba5I4PW32hEjOiqZqzkj2Fw3u668LhhsOTqu3Fw3rJgjOryImDpuXAI6UULlJaXRqKhRQhnapdGoKBtN/39qnxMaL2rOpWjQuCcvajBaaNC3p8+VzqVwz8tXz5UwWnDPytf+/8NiL4WjdOOy/38ntEnwz5XOpXXzmlHjsv9/c6o18/9//384qONrz5UwWnXzmdH/f/9/O6dg7C9qzqVdv0kU/3//f/7//78vajBaxL++lP9//387p54TG03/f02a1JX/f/9/OKgblFFCGdrP0Mco+g0IGeFrNQL+/8Ni////v1FC5SXP0MaoBljSN1jSM6lXFf9/pILtB6295SVR0SvXAAA7nbaWmAKn6v9/2o+tfr3gY8pEr+dn70n+//7//z/4pyzIZtLSVgTyCBn///+/AAA7nf9/AADvSf7//v//P73gY8rVsXVdrb3lJY3RlteuYPBHF9LrqJkx/3+QjxUUUJ/wR9fR8tb4p9I3ZtLS1mXO/38rqDb4UJ8OuNfR81a94Js1RK/m5+9JAAD+//+/QR+bNS+wopetvRnaUdEsV0EfY8ovsKIXBlgsyFjSMymuYA64F9LrKEEfmzUSxeqYQR9jyqSb8RjvSQAA/v//vwsfAAD+//6/+g325uJrNIK94Js11bF13QAAAAAS1AiqBPL25l7FM1cLH/7//v//P629GdqN0ZdX")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_57l2j")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gobw5"]
+data = PackedVector3Array(-0.00049999997, -0.0009, 0.0016999999, -0.0011, 0, 0.0016999999, -0.0007, 0, 0.0021, -0.0007, 0, 0.0021, -0.00029999999, -0.00059999997, 0.0021, -0.00049999997, -0.0009, 0.0016999999, 0.00049999997, -0.0009, 0.0016999999, -0.00049999997, -0.0009, 0.0016999999, -0.00029999999, -0.00059999997, 0.0021, -0.00029999999, -0.00059999997, 0.0021, 0.00029999999, -0.00059999997, 0.0021, 0.00049999997, -0.0009, 0.0016999999, 0.00049999997, -0.0009, 0.0016999999, 0.00029999999, -0.00059999997, 0.0021, 0.0007, 0, 0.0021, -0.00049999997, -0.0009, 0.0016999999, 0.00049999997, -0.0009, 0.0016999999, 0.00059999997, -0.0011999999, 0.0011, 0.0007, 0, 0.0021, 0.0011, 0, 0.0016999999, 0.00049999997, -0.0009, 0.0016999999, 0.00059999997, -0.0011999999, 0.0011, 0.00049999997, -0.0009, 0.0016999999, 0.0011, 0, 0.0016999999, 0.00049999997, 0.0009, 0.0016999999, 0.0011, 0, 0.0016999999, 0.0007, 0, 0.0021, 0.0007, 0, 0.0021, 0.00029999999, 0.00059999997, 0.0021, 0.00049999997, 0.0009, 0.0016999999, 0.0011, 0, 0.0016999999, 0.0013, 0, 0.0011, 0.00059999997, -0.0011999999, 0.0011, 0.00059999997, -0.0011999999, 0.0011, -0.00059999997, -0.0011999999, 0.0011, -0.00049999997, -0.0009, 0.0016999999, -0.0011, 0, 0.0016999999, -0.00049999997, -0.0009, 0.0016999999, -0.00059999997, -0.0011999999, 0.0011, -0.00059999997, -0.0011999999, 0.0011, 0.00059999997, -0.0011999999, 0.0011, 0.00059999997, -0.0011999999, 0.00049999997, 0.00059999997, -0.0011999999, 0.00049999997, 0.00059999997, -0.0011999999, 0.0011, 0.0013, 0, 0.0011, -0.00059999997, -0.0011999999, 0.0011, -0.0013, 0, 0.0011, -0.0011, 0, 0.0016999999, 0.0013, 0, 0.0011, 0.0013, 0, 0.00049999997, 0.00059999997, -0.0011999999, 0.00049999997, 0.0009999999, -0.00049999997, 0.0002, 0.00059999997, -0.0011999999, 0.00049999997, 0.0013, 0, 0.00049999997, 0.00059999997, -0.0011999999, 0.00049999997, -0.00059999997, -0.0011999999, 0.00049999997, -0.00059999997, -0.0011999999, 0.0011, 0, -0.0011999999, 0.0002, -0.00059999997, -0.0011999999, 0.00049999997, 0.00059999997, -0.0011999999, 0.00049999997, -0.0013, 0, 0.0011, -0.00059999997, -0.0011999999, 0.0011, -0.00059999997, -0.0011999999, 0.00049999997, -0.00059999997, -0.0011999999, 0.00049999997, -0.0013, 0, 0.00049999997, -0.0013, 0, 0.0011, -0.0009999999, -0.00049999997, 0.0002, -0.0013, 0, 0.00049999997, -0.00059999997, -0.0011999999, 0.00049999997, 0.00059999997, 0.0011999999, 0.00049999997, 0.0013, 0, 0.00049999997, 0.0013, 0, 0.0011, 0.0009999999, 0.00049999997, 0.0002, 0.0013, 0, 0.00049999997, 0.00059999997, 0.0011999999, 0.00049999997, 0.0013, 0, 0.0011, 0.00059999997, 0.0011999999, 0.0011, 0.00059999997, 0.0011999999, 0.00049999997, 0.00059999997, 0.0011999999, 0.0011, 0.0013, 0, 0.0011, 0.0011, 0, 0.0016999999, 0.0011, 0, 0.0016999999, 0.00049999997, 0.0009, 0.0016999999, 0.00059999997, 0.0011999999, 0.0011, -0.00059999997, 0.0011999999, 0.00049999997, 0.00059999997, 0.0011999999, 0.00049999997, 0.00059999997, 0.0011999999, 0.0011, 0, 0.0011999999, 0.0002, 0.00059999997, 0.0011999999, 0.00049999997, -0.00059999997, 0.0011999999, 0.00049999997, -0.0013, 0, 0.0011, -0.0013, 0, 0.00049999997, -0.00059999997, 0.0011999999, 0.00049999997, -0.0009999999, 0.00049999997, 0.0002, -0.00059999997, 0.0011999999, 0.00049999997, -0.0013, 0, 0.00049999997, -0.00059999997, 0.0011999999, 0.00049999997, -0.00059999997, 0.0011999999, 0.0011, -0.0013, 0, 0.0011, 0.00059999997, 0.0011999999, 0.0011, -0.00059999997, 0.0011999999, 0.0011, -0.00059999997, 0.0011999999, 0.00049999997, -0.00059999997, 0.0011999999, 0.0011, 0.00059999997, 0.0011999999, 0.0011, 0.00049999997, 0.0009, 0.0016999999, -0.0011, 0, 0.0016999999, -0.0013, 0, 0.0011, -0.00059999997, 0.0011999999, 0.0011, 0.00049999997, 0.0009, 0.0016999999, -0.00049999997, 0.0009, 0.0016999999, -0.00059999997, 0.0011999999, 0.0011, -0.00059999997, 0.0011999999, 0.0011, -0.00049999997, 0.0009, 0.0016999999, -0.0011, 0, 0.0016999999, -0.00049999997, 0.0009, 0.0016999999, 0.00049999997, 0.0009, 0.0016999999, 0.00029999999, 0.00059999997, 0.0021, -0.0007, 0, 0.0021, -0.0011, 0, 0.0016999999, -0.00049999997, 0.0009, 0.0016999999, 0.00029999999, 0.00059999997, 0.0021, -0.00029999999, 0.00059999997, 0.0021, -0.00049999997, 0.0009, 0.0016999999, -0.00049999997, 0.0009, 0.0016999999, -0.00029999999, 0.00059999997, 0.0021, -0.0007, 0, 0.0021, 0.00029999999, 0.00059999997, 0.0021, 0.0007, 0, 0.0021, 0, 0, 0.0022, 0.0007, 0, 0.0021, 0.00029999999, -0.00059999997, 0.0021, 0, 0, 0.0022, -0.00029999999, 0.00059999997, 0.0021, 0.00029999999, 0.00059999997, 0.0021, 0, 0, 0.0022, 0.00029999999, -0.00059999997, 0.0021, -0.00029999999, -0.00059999997, 0.0021, 0, 0, 0.0022, -0.00029999999, 0.00059999997, 0.0021, 0, 0, 0.0022, -0.0007, 0, 0.0021, -0.00029999999, -0.00059999997, 0.0021, -0.0007, 0, 0.0021, 0, 0, 0.0022, -0.0009999999, -0.00049999997, 0.0002, -0.0009999999, 0.00049999997, 0.0002, -0.0013, 0, 0.00049999997, -0.00059999997, -0.0011999999, 0.00049999997, 0, -0.0011999999, 0.0002, -0.0009999999, -0.00049999997, 0.0002, -0.0009999999, -0.00049999997, 0.0002, 0, -0.0011999999, 0.0002, 0, -0.0007, 0, -0.0009999999, 0.00049999997, 0.0002, -0.0009999999, -0.00049999997, 0.0002, -0.00059999997, -0.00029999999, 0, 0, -0.0007, 0, -0.00059999997, -0.00029999999, 0, -0.0009999999, -0.00049999997, 0.0002, -0.00059999997, -0.00029999999, 0, -0.00059999997, 0.00029999999, 0, -0.0009999999, 0.00049999997, 0.0002, 0, -0.0007, 0, 0, -0.0011999999, 0.0002, 0.0009999999, -0.00049999997, 0.0002, 0.0009999999, -0.00049999997, 0.0002, 0, -0.0011999999, 0.0002, 0.00059999997, -0.0011999999, 0.00049999997, 0, 0, 0, -0.00059999997, -0.00029999999, 0, 0, -0.0007, 0, 0, 0, 0, -0.00059999997, 0.00029999999, 0, -0.00059999997, -0.00029999999, 0, 0.0009999999, -0.00049999997, 0.0002, 0.00059999997, -0.00029999999, 0, 0, -0.0007, 0, 0, 0, 0, 0, -0.0007, 0, 0.00059999997, -0.00029999999, 0, 0.00059999997, -0.00029999999, 0, 0.0009999999, -0.00049999997, 0.0002, 0.0009999999, 0.00049999997, 0.0002, 0.0009999999, 0.00049999997, 0.0002, 0.0009999999, -0.00049999997, 0.0002, 0.0013, 0, 0.00049999997, 0, 0, 0, 0.00059999997, -0.00029999999, 0, 0.00059999997, 0.00029999999, 0, 0.0009999999, 0.00049999997, 0.0002, 0.00059999997, 0.00029999999, 0, 0.00059999997, -0.00029999999, 0, -0.00059999997, 0.00029999999, 0, 0, 0, 0, 0, 0.0007, 0, 0, 0, 0, 0.00059999997, 0.00029999999, 0, 0, 0.0007, 0, 0, 0.0007, 0, 0.00059999997, 0.00029999999, 0, 0.0009999999, 0.00049999997, 0.0002, -0.0009999999, 0.00049999997, 0.0002, -0.00059999997, 0.00029999999, 0, 0, 0.0007, 0, 0.0009999999, 0.00049999997, 0.0002, 0, 0.0011999999, 0.0002, 0, 0.0007, 0, 0, 0.0007, 0, 0, 0.0011999999, 0.0002, -0.0009999999, 0.00049999997, 0.0002, 0, 0.0011999999, 0.0002, 0.0009999999, 0.00049999997, 0.0002, 0.00059999997, 0.0011999999, 0.00049999997, -0.0009999999, 0.00049999997, 0.0002, 0, 0.0011999999, 0.0002, -0.00059999997, 0.0011999999, 0.00049999997)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym0oh"]
+resource_name = "forest"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0e11k")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_piclw"]
+_surfaces = [{
+"aabb": AABB(-0.0036121246, -0.0036121255, -0.00012356014, 0.0072242506, 0.0072242506, 0.00484112),
+"format": 34359742465,
+"index_count": 504,
+"index_data": PackedByteArray("KgAsAC0AKQAsACoAKgAtAAwADAAuACoALgApACoALgAMAC8ADAAtADAALwAMADAALAAxAC0ALwAyAC4ALAAzADEALAA0ADMAKQA0ACwAMQAzADUANAA1ADMANgApAC4ANgAuADIABgA0ACkANwApADYABgApADcAFwA1ADQAFwA0AAYANwA4AAYAOAAXAAYAJgA3ADYAOAA3ACYAMgAIADYANgAIACYAJgA5ADgAOgAXADgAOgA4ADkAEwA5ACYAOQAJADoACQA5ABMAOwAmAAgAJgA7ABMACAA8ADsAEwA7AAMAAwA7ADwAKAA8AAgACAAyACgAPAAlAAMAEgAlADwAPAAoABIAAgAoADIAMgAvAAIAKAACACcAJwASACgAAgAvACsAMAArAC8AJwACAD0AKwA9AAIADgArADAAPgA9ACsAKwAOAD4APQAQACcAEgAnABEAEQAnABAAPQA+ACAAIAAQAD0AIAA+AB4AHgA+AA4AEAAgAAQAEQAQAD8AEAAEAD8ABAAgAAcAHgAHACAAIgA/AAQAEQA/ACIAIgBAABEABABBACIAQAAiAEIAIgBBAEIAQQAEACEABAAHACEAIQBDAEEAQgBBAEMAEQBAAEQAQABCAEQARABFABEAEgARAEUARQBEABQAQgAUAEQABQASAEUAFAAFAEUABQAlABIAAwAlAAUAJAAFABQAAwAFACQAFABGACQARgAUAEIACwADACQAJABGAEcARwALACQAQgBHAEYACwAYAAMAAwAYABMACwBHACMAIwBHAEIAIwBIAAsASQATABgAQgBKACMAEwBJAAkAFQAYAAsAFQALAEgAGAAVAEkACgBIACMAIwBKAAoACgAVAEgASQAVABoACgAaABUAGgAZAEkACQBJABkACgABABoAGQAaAAEACgBKAEsAQgBLAEoASwBMAAoACgBMAAEAFgBLAEIATABLABYAQwAWAEIAFgBDACEAFgAbAEwAIQAbABYAGwABAEwABwAbACEAGwAcAAEABwAcABsATQAcAAcAAQAcAE0ABwAeAE0ATQBOAAEAAQBOABkAHQBNAB4ATgBNAB0AHgBPAB0ADgBPAB4AHQAPAE4AGQBOAA8AUAAdAE8ADwAdAFAAAABPAA4ATwAAAFAADgBRAAAAMABRAA4AMAAtAFEAUQAtAB8AAABRAB8ALQAxAB8AHwBSAAAAHwAxAFIAAABSAFAAMQA1AFIAUABSAFMAUABTAA8AUgA1AA0AUwBSAA0ADQA1ABcAVABTAA0ADQAXAFQADwBTAFQAVAAXADoAVABVAA8AVQBUADoADwBVABkAOgAJAFUAGQBVAAkA"),
+"lods": [0.00046350854, PackedByteArray("FwANAAYADQAXAAkACQAXAAYACQAGABMAEwAVAAkAFQATABgAAwAYABMACQAVABkAGQANAAkAGgAZABUAFQAYAAsACwAYAAMACgAaABUACgAVAAsAGQAaAAEACgABABoAAQAPABkADQAZAA8ACgAbAAEAHAAPAAEAGwAcAAEADwAcAB0AHQANAA8ABwAcABsAHQAcAB4ABwAeABwAHgAAAB0AAAANAB0AHwANAAAADgAAAB4ADgAfAAAAHgAHACAAIAAOAB4AEAAOACAABAAgAAcAEAAgAAQABAAHACEABwAbACEAIQAbABYAFgAbAAoAIgAEACEAIQAWACIAEQAEACIAEQAQAAQAIgAWABQAEQAiABQACgAjABYAFgAjABQACgALACMAIwALACQAJAAUACMACwADACQAJAAFABQAFAAFABEAAwAFACQAEgARAAUAAwAlAAUABQAlABIAAwAmACUAEwAmAAMAJgATAAYAEgAnABEAEQAnABAAJQAoABIAJwASACgACAAlACYAJgAGAAgAKAAlAAgABgApAAgACAApACoAKQAGACoACAAqACgAKAACACcAJwACABAADAAoACoAKAAMAAIAKgAGAB8AKgAfAAwABgANAB8AKwAQAAIAAgAMACsADAAfACsADgAQACsAKwAfAA4A"), 0.0010486273, PackedByteArray("DAAGAAAABgANAAAADAAAAA4ADQAGAAkAAAANAA8ADQAJAA8ADgAAAAcABwAAAA8AAgAMAA4ADwABAAcAAQAPAAkAEAAOAAcADgAQAAIABAAQAAcABwABAAQAEQAQAAQAEQACABAAEgACABEACAAMAAIACAAGAAwAAwACABIAAgADAAgACAATAAYAEwAIAAMACQAGABMAEgARAAUABQADABIAFAAFABEAEQAEABQACwADAAUACwATAAMABQAUAAsAEwAVAAkAFQATAAsACQAVAAEACgAVAAsACgABABUAFgALABQACgALABYAFgABAAoABAAWABQABAABABYA"), 0.0019993938, PackedByteArray("AAAEAAIABAAAAAcABwAAAAEABwABAAQAAAAGAAEAAgAGAAAACAAGAAIABgAJAAEACAAJAAYABAABAAoACQAKAAEABQACAAQABAAKAAUACgAJAAsACgALAAUACQAIAAMAAgADAAgACwAJAAMAAwACAAUACwADAAUA"), 0.0029990906, PackedByteArray("AAAEAAIABQACAAQAAgAGAAAAAwACAAUAAgADAAYAAQADAAUABAABAAUAAQAGAAMABAAAAAEAAAAGAAEA"), 0.005885856, PackedByteArray("AAABAAIAAwACAAEAAgADAAAAAQAAAAMA")],
+"name": "forest",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 86,
+"vertex_data": PackedByteArray("PWJrug1V9Lqa5Yg7qUjMOvc+TLsX2JQ6nVBLu4VxyzqRRB87tkjMOvM+TDsD2JQ6pV8uuzF5rroU79c5UhiXLy8kSjtx7tc5z96KOszeijpabpI7u0jMuvI+TLsX2JQ6DTijL+65SzvB9mA78blLO6GfUrC39mA7pF8uO0N5rrrD7tc5pl8uOzZ5rjof7tc5BlX0ujpiazqa5Yg7y96KOtLeirpabpI7QRMwu4gtrrqsCGE7iC2uOkETMLu3CGE7Zblsu65P+jAX2JQ6oF8uu0B5rjrD7tc5rkjMuvY+TDsX2JQ6pVBLO3hxyzqGRB87mlkKL6EfAjsKtw63arlsO1KobLAD2JQ6ZjYqsKQfAruPog63Tzm4Ohi/8q/reZM7+D5MO61IzDoD2JQ6oVBLO4hxy7qRRB879D5MO7tIzLoX2JQ6uAansDEkSrvD7tc5e/zPsGm5bLsX2JQ6J7KJsO65S7vB9mA7iHHLuqBQS7uGRB87z96KusveirpabpI79j5Mu6lIzLoX2JQ6QXmuuqNfLrvD7tc5oR8Cu0jxLDCPog63pB8CO4+yQ7AKtw63PXmuOqNfLjsf7tc5hevLrWi5bDsD2JQ6lC2uOkATMDusCGE77z5Mu7pIzDoX2JQ6e3HLuqNQSzuRRB87BTBtL005uDrreZM7yd6Kus/eijpdbpI77blLu2ogjDC39mA7MM8ZujPPGToGAJo7TTm4urNgEjDreZM7LmJrug1V9Dqa5Yg7OxMwu5Mtrjq3CGE7eG8Tu78APzBY+oY7NM8ZujHPGboGAJo7jC2uukATMDu3CGE7KUtqrmE8Wa/DlZo7M88ZOi3PGToGAJo7Ls8ZOjbPGboGAJo78O8TL3hvEztY+oY7OGJrOg1V9Dqa5Yg7D1X0Oipiazqa5Yg7QxMwO4ktrjqsCGE7em8TO6GfUrBY+oY7g3HLOqFQSzuGRB87UhiXL86qazuRRB87zKpru+xZ0TCGRB87pFBLu3Nxy7qGRB87LSRKu0jpkzDD7tc5OiXguiahYTqPog63PyXguhKhYbpSmA63uB79rNfjAq/sjwG5KKFhuj0l4LqPog63F6Fhuj0l4DqPog63N3muuqVfLjvD7tc5H6FhOjsl4DqFyw63QCXgOhOhYTqFyw63MSRKO1KobLBx7tc50aprO+xJn7CGRB87PyXgOiyhYbrNrA63FKFhOkMl4LqPog63M3muOqhfLrvD7tc5uAansM6qa7uRRB87dHHLOqVQS7uRRB87mC2uukATMLusCGE7OCQ6sHpvE7tY+oY7D1X0uiZia7qa5Yg7Umjur085uLrreZM7LGJrOhFV9Lqa5Yg7DVX0Oj1ia7qa5Yg7QBMwO5ctrrq3CGE7")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ydm6j"]
+resource_name = "Bush_1_B_Color1"
+_surfaces = [{
+"aabb": AABB(-0.0036121246, -0.0036121255, -0.00012356014, 0.0072242506, 0.0072242506, 0.00484112),
+"attribute_data": PackedByteArray("YEhTPYCDfT2oT5894FQePkBP2TwAy/c9qE+fPeBUHj7AiwA9yJQxPpBoeD3IlDE+MBySPWBuTT3AiwA9yJRRPqhPnz3gVD4+kGh4PciUUT6oT5894FQ+PmAzMj3gVB4+kGh4Pbh4qz0Qebw9uHirPbgiuD3IlDE+uCK4PciUMT5gMzI94FQ+PrgiuD3IlFE+uCK4PciUUT6AVSs9gIM9PTAckj1gbg09YEhTPYCDPT0wHJI9YG4NPXBRCT1ga6s9gFUrPYCDfT3AYKs84FQePtCMAD3IlDE+YDMyPeBUHj6ArZc9YGurPTAckj1gbk09qJDNPeBUHj4QFcI9AMv3PZBoeD0cw1w+0IwAPciUUT7AYKs84FQ+PqiQzT3gVD4+kGh4PRzDXD5gMzI94FQ+PphDmT3gKAg9YJpMPWBuDT1gmkw94G0NPZBoeD3gKAg9YJpMPWBuTT0Avu88uHirPfB8Mj0Ay/c9IAfYPOBUHj7wfDI9AMv3PSAH2DzgVB4+YJpMPeBtTT2QaHg94FQePpBoeD3IlDE+kGh4Pbh4qz0QFcI9AMv3Pchmwj3gVB4+mEOZPeAoSD3IZsI94FQePoCtlz1ga6s9kGh4PeAoSD2QaHg94FQePiByPD3IlFE+kGh4PciUUT6Q9x49HMNcPlDtqD0cw1w+SDCaPciUUT4gJmA9gITOPJBLPj3gKAg9gFUrPYCDPT1gSFM9gIM9PSAmYD2AhM48kGh4PUAzrjyQaHg94CgIPchViD2AhM48yFWIPYCEzjzwxI49gIM9PaC+oj2Agz098MSOPYCDPT2gvqI9gIM9PYBVKz2Ag309oGMbPYCYgz2QSz494ChIPXBRCT1ga6s9YEhTPYCDfT2wdkE9YGurPZBoeD2AmIM98MSOPYCDfT1AT9k8AMv3PaDVrDwAy/c9kGh4PQDL9z2oKp89AMv3PbgzzT0Ay/c9IMCzPWBrqz2gvqI9gIN9PQi3qj2AmIM9oL6iPYCDfT0gwLM9YGurPfDEjj2Ag309kGh4PYCYgz2QaHg94ChIPagqnz0Ay/c9sHZBPWBrqz2QaHg9AMv3PZBfKz0Aw1w+IKNRPRzDXD5IMJo9yJRRPpBoeD2M0l8+kJePPRzDXD5QuaI9HMNcPritwT3IlFE+ULmiPRzDXD6Ql489HMNcPiByPD3IlFE+IKNRPRzDXD6QXys9HMNcPoDs2jzIlFE+"),
+"format": 34359742487,
+"index_count": 504,
+"index_data": PackedByteArray("KABAAEEAKABBABMAQgBBACcAKQBAACgAQwApACgAQABEAEEAQQBEACcAQABFAEQAJwBEAEYAJwBGABUARABFAEcARABHAEYAQABIAEUASABHAEUAKQBIAEAARgBHABYASQBGABYAFgBHACYAJgBHAEgAFgAmAEoAFABIACkAJgBIABQAFAApAEsATAAmABQAAABNACoAFwBNAAAATgBNABcATgBPAE0AGABPAE4AUAAYAE4AGABRADAAUQAYAFAATgArAFAAFwArAE4AUABSAFEAAgBQACsAUgBQAAIAUwBRAFIAUwA5AFEAVAA5AFMAKwAXAFUAOABUAFMAKwBWAAIAVQBWACsALABVABcAVgBVAC0ALQBVACwALQAZAFYAGQAtAAQABAAtAAsALAALAC0AVgAZAC8ALwACAFYAGgAvABkAGwAvABoALgACAC8ALwAbAC4AAgAuAFIADABSAC4AUgAMAFMAVwAuABsALgBXAAwAGwA6AFcABQA6ABsAAwA6AAUAVwA6AAMAUwAMADgADABXAFgAAwBYAFcAWAA4AAwAHwBYAAMAOABYAB8AAwA3AB8ADwA3AAMAHgA3AA8AWQAfADcANwAeAFkAHwBaADgAWQAeADUADgA1AB4AHwBZAA0ADQBaAB8ADgABADUANQA0AFkADQBZADQANAA1AAEAOABaAFsAWwBUADgAVABbAAYAXABbAFoAWgANAFwAXAA2AFsAXQA2AFwAXAANAF4AXgBdAFwANABeAA0AXQBeABwAHABeADQAXQBfAB0AHABfAF0AYABfABwAYABhAF8AAABhAGAANABiABwAAQBiADQAHAAzAGAAMwAcAGIAYwAAAGAAYAAzAGMAAABjABcAFwBjACwALABjADMAYgBkADMAMwBkACwAZABiAAEACwAsAGQAAQAxAGQAZAAxAAsAMgAxAAEACwAxADIABwAQADsAEAA8ADsAZQAHADsAOwBmAGUAOwA8ACAAIABmADsAIAA8AGcAPAAIAGcAZgAgAGgAaABlAGYAZwBpACAAIABpAGgAEQBnAAgAaQBnABEAEQBqAGkAaABpAGoAPgBqABEAaABqAD4AEQBrAD4AEQAjAGsAIwASAGsAPgBrABIAEgBsAD4APgBsAGgAbAASAD8AEgAKAD8ACgAJAD8APwBtAGwAaABsAG0AJABtAD8APwAJACQAbQAkAGgAJAAJAG4ACQAlAG4AJQAhAG4AbgBvACQAaAAkAG8AbwBuACEAcABoAG8AIQBwAG8AcAA9AGgAPQBwACEAPQBlAGgABwBlAD0AIQBxAD0APQBxAAcAIQAiAHEAIgAHAHEA"),
+"lods": [0.00046350854, PackedByteArray("JgAWABQAFAAWACcAJwAWABUAKAAUACcAKQAUACgAKAAnABMAFwAqAAAAKwAqABcAGAAqACsAFwAAACwAAgAYACsAFwAZACsAKwAZAAIAGQAXAC0ALQAXACwAGQAtAAQABAAtAAsALAALAC0ALgAYAAIALwACABkALgACAC8AGgAvABkAGwAvABoALwAbAC4AGAAuADAACwAsADEACwAxADIAMgAxAAEAMwAxACwALAAAADMAAAAdADMAHAAxADMAMQAcAAEAMwAdABwAAQAcADQAHQA0ABwANAA1AAEADgABADUADgA1AB4ANQA0AB4ANAAdAA0ADQAeADQAHQA2AA0ADQA2AAYAHwAeAA0ADQAGAB8AHgAfADcAHgA3AA8ADwA3AAMAAwA3AB8AOAAfAAYAHwA4AAMAOAAGAAwABgA5AAwADAA5ADAADAAwAC4ADAA6ADgAAwA4ADoALgA6AAwAAwA6AAUAOgAuABsABQA6ABsABwAQADsAEAA8ADsAPQAHADsAOwA8ACAAOwAgAD0AIAA8ABEAEQA8AAgAIQAHAD0AIQAiAAcAPQAgACQAIQA9ACQAJAAJACEAJQAhAAkAIAA+ACQAEQA+ACAAPwAJACQAPwAkAD4ACgAJAD8AEgAKAD8APgASAD8AEQASAD4AEQAjABIA"), 0.0010486273, PackedByteArray("EwAUABUAFAAWABUAFwAAAAsAGAAAABcAGQAXAAsABAAZAAsAFwAZAAIAAgAYABcAGgACABkAGwACABoACwAAABwAAAAdABwAHAABAAsAHQANABwAAQAcAA0AHQAGAA0ADQAeAAEADgABAB4AHwAeAA0ADQAGAB8AHgAfAA8ADwAfAAMAAwACABsABQADABsAAgADAAwAHwAMAAMADAAfAAYADAAYAAIADAAGABgAEAAIAAcABwAIACAAIAAIABEAIQAiAAcAEQASACAAEQAjABIABwAgACQAIQAHACQAIAASACQAJAAJACEACQAkABIAJQAhAAkAEgAKAAkA"), 0.0019993938, PackedByteArray("AAAEAAIABAAAAAsABQACAAQACwAAAAEAAwACAAUAAgADAAwAAgAGAAAAAAAGAAEADAAGAAIABgANAAEADAANAAYADQAMAAMADQAOAAEADwANAAMADgANAA8AEAAIAAcABwAIABEABwARAAkAEQASAAkAEgAKAAkA"), 0.0029990906, PackedByteArray("AAAEAAIABQACAAQABAAAAAEAAwACAAUAAgAGAAAAAgADAAYAAAAGAAEAAQAGAAMABwAIAAkACAAKAAkA"), 0.005885856, PackedByteArray("AAABAAIAAwACAAEAAgADAAAAAQAAAAMA")],
+"material": SubResource("StandardMaterial3D_ym0oh"),
+"name": "forest",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 114,
+"vertex_data": PackedByteArray("PWJrug1V9Lqa5Yg7qUjMOvc+TLsX2JQ6nVBLu4VxyzqRRB87tkjMOvM+TDsD2JQ6pV8uuzF5rroU79c5UhiXLy8kSjtx7tc5z96KOszeijpabpI7pV8uuzF5rroU79c5qUjMOvc+TLsX2JQ6UhiXLy8kSjtx7tc5tkjMOvM+TDsD2JQ6u0jMuvI+TLsX2JQ6DTijL+65SzvB9mA78blLO6GfUrC39mA7pF8uO0N5rrrD7tc5pl8uOzZ5rjof7tc5u0jMuvI+TLsX2JQ6pF8uO0N5rrrD7tc5pl8uOzZ5rjof7tc5BlX0ujpiazqa5Yg7z96KOszeijpabpI7PWJrug1V9Lqa5Yg7y96KOtLeirpabpI7QRMwu4gtrrqsCGE7BlX0ujpiazqa5Yg7Zblsu65P+jAX2JQ6oF8uu0B5rjrD7tc5rkjMuvY+TDsX2JQ6iC2uOkETMLu3CGE7y96KOtLeirpabpI7arlsO1KobLAD2JQ6pVBLO3hxyzqGRB87ZjYqsKQfAruPog63oF8uu0B5rjrD7tc5Zblsu65P+jAX2JQ6arlsO1KobLAD2JQ6mlkKL6EfAjsKtw63rkjMuvY+TDsX2JQ6Tzm4Ohi/8q/reZM7z96KusveirpabpI7yd6Kus/eijpdbpI7BTBtL005uDrreZM7z96KusveirpabpI77blLu2ogjDC39mA7iHHLuqBQS7uGRB879j5Mu6lIzLoX2JQ6e3HLuqNQSzuRRB877z5Mu7pIzDoX2JQ6yd6Kus/eijpdbpI7e/zPsGm5bLsX2JQ6uAansDEkSrvD7tc5J7KJsO65S7vB9mA7oVBLO4hxy7qRRB879D5MO7tIzLoX2JQ6Tzm4Ohi/8q/reZM7+D5MO61IzDoD2JQ6lC2uOkATMDusCGE7BTBtL005uDrreZM7hevLrWi5bDsD2JQ6QXmuuqNfLrvD7tc5uAansDEkSrvD7tc5oR8Cu0jxLDCPog63pB8CO4+yQ7AKtw63PXmuOqNfLjsf7tc5MM8ZujPPGToGAJo7TTm4urNgEjDreZM7D1X0uiZia7qa5Yg7LmJrug1V9Dqa5Yg7NM8ZujHPGboGAJo7KUtqrmE8Wa/DlZo7Umjur085uLrreZM7Ls8ZOjbPGboGAJo7M88ZOi3PGToGAJo7LGJrOhFV9Lqa5Yg7DVX0Oj1ia7qa5Yg7OGJrOg1V9Dqa5Yg7D1X0Oipiazqa5Yg7D1X0uiZia7qa5Yg7eG8Tu78APzBY+oY7TTm4urNgEjDreZM7OxMwu5Mtrjq3CGE7LmJrug1V9Dqa5Yg7jC2uukATMDu3CGE78O8TL3hvEztY+oY7OGJrOg1V9Dqa5Yg7pFBLu3Nxy7qGRB87zKpru+xZ0TCGRB87UhiXL86qazuRRB87g3HLOqFQSzuGRB870aprO+xJn7CGRB87QxMwO4ktrjqsCGE7D1X0Oipiazqa5Yg7em8TO6GfUrBY+oY7DVX0Oj1ia7qa5Yg7QBMwO5ctrrq3CGE7LGJrOhFV9Lqa5Yg7OCQ6sHpvE7tY+oY7Umjur085uLrreZM7dHHLOqVQS7uRRB87mC2uukATMLusCGE7uAansM6qa7uRRB87PyXguhKhYbpSmA63KKFhuj0l4LqPog63M3muOqhfLrvD7tc5uB79rNfjAq/sjwG5FKFhOkMl4LqPog63PyXgOiyhYbrNrA63MSRKO1KobLBx7tc5QCXgOhOhYTqFyw63H6FhOjsl4DqFyw63N3muuqVfLjvD7tc5F6Fhuj0l4DqPog63OiXguiahYTqPog63LSRKu0jpkzDD7tc50GkoWp3QQahXvrEnt88S2G07l6lTsCkYV75N2LfPE1goGqUqxbGCmC06/v/+//8/lJiUmP+//18oGqUqZq80mFe+sSfNzzHYLTr+//7//z9Xvk3Yzc8yWKdBsSfYz9un/3+LyP7//z+LyP9/OZsZ+tblpSoFsRzn1uVZ1QWxHGenQbEnms/mp9blpSpqsEvo1uVZ1WqwTGgoWi6WM6wDE5SYlJj/v/9f0GkoWsrT+6yUmGpn/7//351MomCJsBiYKFoulmCvvRcAAI+dFY2CASgaWdXFsYIYp0FN2NjP2ydcn51MzM9E2JSYamf/v//f/v9vYgWDc/mRxJepU7DVZzkZAAD+//+/KBpZ1WavNRgAAI+dGY2DAf7/b2IGg3L5ORn+//7//z+nQU3Yms/mJ6Wi/38tqp3wamdqZ/+//59qZ5SY/7//H/9/paL+//8/amdqZ/+//59zN/9/y4udDWdWbTuqz9WnsCenQTWwHZhnVpHEqs/VJ7AnV741sB0YameUmP+//x9xYgAA/v//vy06AAD+//+//39zN/7//7+RxGdWU7DU507Yp0E7sOPnpaL/f7qgD/RO2Fe+O7DkZ1yfYbPMz0RY/3+lov7//z9xYv7/////P6QqKBqvz7KnLToAAP7//78AADkZ7KIFDv7/ORkKnIjuWtXW5WXPJ1iOcXCOptAqK1ld/3/CnhYVKFrQaTOsA5PQadaly9P8LI5xjnH///8//3//f/7//z//f1ld/v//v3COjnFV1qvXcI5wjlXWq1culiha99kZ1tal0GkGpuTpLpbWpffZGVbWpS6WBqblaSha0Glgr7yXyU3/fxSUhRBZXf9/3pddEJ1MXJ+JsBkY0GnWpZ3QQiiiYGGzdM/mJ/9/NbL+//8/LpbWpYTQsFdtO2dWU7ApmKsX/3/WgfgE/39T6P///z+XqZHEq88pWFPo/3/wiRP/YbNcnzKwumfWpS6Weq9OaDWy/38KofT11qXQaXqvTuhhs6JgMrC55y6WKFqE0K/X/3/JTf7//7//f1ld/v//v5epbTurzynYomCdTHTP5af/f6sX/v//v44MChRssFiYChSODJHPpqda1SgaZc8n2AAAAAD+//8/9OuODE7PNdhw8woUsLDI5/7/LjrhkZrvcPP067CwyWf063DzTs81WKQq1uWvz7MnChRw85LPpyeODPTra7BYGAAALjrJoPEI")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_piclw")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dbm6o"]
+radius = 0.003829956
+height = 0.007659912
+
+[node name="Node3D" type="Node3D" unique_id=1055915825]
+
+[node name="Bush_1_A_Color1" type="Node3D" parent="." unique_id=932532879]
+visible = false
+
+[node name="Bush_1_A_Color1" type="MeshInstance3D" parent="Bush_1_A_Color1" unique_id=902246408]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.992645, 0, 0)
+mesh = SubResource("ArrayMesh_o3go6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bush_1_A_Color1/Bush_1_A_Color1" unique_id=1458392197]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_1_A_Color1/Bush_1_A_Color1/StaticBody3D" unique_id=318161424]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_gobw5")
+
+[node name="Bush_1_B_Color1" type="Node3D" parent="." unique_id=1647567292]
+
+[node name="Bush_1_B_Color1" type="MeshInstance3D" parent="Bush_1_B_Color1" unique_id=83235497]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ydm6j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bush_1_B_Color1/Bush_1_B_Color1" unique_id=815156466]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bush_1_B_Color1/Bush_1_B_Color1/StaticBody3D" unique_id=823743922]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, 6.984921e-10, 0.000106621424, 0.0022970014)
+shape = SubResource("CapsuleShape3D_dbm6o")
+
+[node name="Bush_1_C_Color1" parent="." unique_id=677107105 instance=ExtResource("3_7iawy")]
+visible = false
+
+[node name="Bush_1_D_Color1" parent="." unique_id=945716981 instance=ExtResource("4_g777t")]
+visible = false
+
+[node name="Bush_1_E_Color1" parent="." unique_id=1716602430 instance=ExtResource("5_o705v")]
+visible = false
+
+[node name="Bush_1_F_Color1" parent="." unique_id=285933650 instance=ExtResource("6_7ahui")]
+visible = false
+
+[node name="Bush_1_G_Color1" parent="." unique_id=1611416444 instance=ExtResource("7_0su1y")]
+visible = false
+
+[node name="Bush_2_A_Color1" parent="." unique_id=1592568002 instance=ExtResource("8_3alrv")]
+visible = false
+
+[node name="Bush_2_B_Color1" parent="." unique_id=1014904134 instance=ExtResource("9_8ojjm")]
+visible = false
+
+[node name="Bush_2_C_Color1" parent="." unique_id=1268401273 instance=ExtResource("10_rj6nm")]
+visible = false
+
+[node name="Bush_2_D_Color1" parent="." unique_id=2066861610 instance=ExtResource("11_kri3y")]
+visible = false
+
+[node name="Bush_2_E_Color1" parent="." unique_id=1577510572 instance=ExtResource("12_vetbi")]
+visible = false
+
+[node name="Bush_2_F_Color1" parent="." unique_id=1409946483 instance=ExtResource("13_tje0h")]
+visible = false
+
+[node name="Bush_3_A_Color1" parent="." unique_id=2020349078 instance=ExtResource("14_8mhpo")]
+visible = false
+
+[node name="Bush_3_B_Color1" parent="." unique_id=1058692690 instance=ExtResource("15_2v5bf")]
+visible = false
+
+[node name="Bush_3_C_Color1" parent="." unique_id=846913304 instance=ExtResource("16_v74fa")]
+visible = false
+
+[node name="Bush_4_A_Color1" parent="." unique_id=1617497603 instance=ExtResource("17_7178c")]
+visible = false
+
+[node name="Bush_4_B_Color1" parent="." unique_id=2111993652 instance=ExtResource("18_f8dmf")]
+visible = false
+
+[node name="Bush_4_C_Color1" parent="." unique_id=2000303762 instance=ExtResource("19_tkk8t")]
+visible = false
+
+[node name="Bush_4_D_Color1" parent="." unique_id=2057987798 instance=ExtResource("20_frr88")]
+visible = false
+
+[node name="Bush_4_E_Color1" parent="." unique_id=1682896482 instance=ExtResource("21_47tmp")]
+visible = false
+
+[node name="Bush_4_F_Color1" parent="." unique_id=1935158227 instance=ExtResource("22_gks0d")]
+visible = false
+
+[node name="Grass_1_A_Color1" parent="." unique_id=259045986 instance=ExtResource("23_pfuqy")]
+visible = false
+
+[node name="Grass_1_A_Singlesided_Color1" parent="." unique_id=1870353109 instance=ExtResource("24_xuymw")]
+visible = false
+
+[node name="Grass_1_B_Color1" parent="." unique_id=723050444 instance=ExtResource("25_u6v60")]
+visible = false
+
+[node name="Grass_1_B_Singlesided_Color1" parent="." unique_id=629446302 instance=ExtResource("26_bjpeg")]
+visible = false
+
+[node name="Grass_1_C_Color1" parent="." unique_id=1345953983 instance=ExtResource("27_wiict")]
+visible = false
+
+[node name="Grass_1_C_Singlesided_Color1" parent="." unique_id=1178539215 instance=ExtResource("28_sypq1")]
+visible = false
+
+[node name="Grass_1_D_Color1" parent="." unique_id=172451396 instance=ExtResource("29_0364h")]
+visible = false
+
+[node name="Grass_1_D_Singlesided_Color1" parent="." unique_id=1134129085 instance=ExtResource("30_hha7f")]
+visible = false
+
+[node name="Grass_2_A_Color1" parent="." unique_id=501722858 instance=ExtResource("31_xm4xj")]
+visible = false
+
+[node name="Grass_2_A_Singlesided_Color1" parent="." unique_id=1223446775 instance=ExtResource("32_jmwh8")]
+visible = false
+
+[node name="Grass_2_B_Color1" parent="." unique_id=1398165764 instance=ExtResource("33_mxy27")]
+visible = false
+
+[node name="Grass_2_B_Singlesided_Color1" parent="." unique_id=1639858629 instance=ExtResource("34_2i7p0")]
+visible = false
+
+[node name="Grass_2_C_Color1" parent="." unique_id=1283205080 instance=ExtResource("35_311la")]
+visible = false
+
+[node name="Grass_2_C_Singlesided_Color1" parent="." unique_id=751277833 instance=ExtResource("36_awqxo")]
+visible = false
+
+[node name="Grass_2_D_Color1" parent="." unique_id=1931168220 instance=ExtResource("37_wgfm7")]
+visible = false
+
+[node name="Grass_2_D_Singlesided_Color1" parent="." unique_id=891275192 instance=ExtResource("38_c7bhv")]
+visible = false
+
+[node name="Hill_2x2x2_Color1" parent="." unique_id=2050689399 instance=ExtResource("39_6etho")]
+visible = false
+
+[node name="Hill_2x2x4_Color1" parent="." unique_id=1051590492 instance=ExtResource("40_bqnp2")]
+visible = false
+
+[node name="Hill_2x2x8_Color1" parent="." unique_id=135352822 instance=ExtResource("41_adsbh")]
+visible = false
+
+[node name="Hill_4x2x2_Color1" parent="." unique_id=236340981 instance=ExtResource("42_usi76")]
+visible = false
+
+[node name="Hill_4x2x4_Color1" parent="." unique_id=1951988357 instance=ExtResource("43_wyudx")]
+visible = false
+
+[node name="Hill_4x2x8_Color1" parent="." unique_id=756178233 instance=ExtResource("44_hqjsb")]
+visible = false
+
+[node name="Hill_4x4x2_Color1" parent="." unique_id=904447830 instance=ExtResource("45_mwtvs")]
+visible = false
+
+[node name="Hill_4x4x4_Color1" parent="." unique_id=1807238254 instance=ExtResource("46_4kcnj")]
+visible = false
+
+[node name="Hill_4x4x8_Color1" parent="." unique_id=735069773 instance=ExtResource("47_ugykf")]
+visible = false
+
+[node name="Hill_8x4x2_Color1" parent="." unique_id=1337415744 instance=ExtResource("48_wg6ff")]
+visible = false
+
+[node name="Hill_8x4x4_Color1" parent="." unique_id=1131914741 instance=ExtResource("49_rifck")]
+visible = false
+
+[node name="Hill_8x4x8_Color1" parent="." unique_id=527765692 instance=ExtResource("50_ku3my")]
+visible = false
+
+[node name="Hill_8x8x2_Color1" parent="." unique_id=769354977 instance=ExtResource("51_wl8bk")]
+visible = false
+
+[node name="Hill_8x8x4_Color1" parent="." unique_id=1987970334 instance=ExtResource("52_diqxf")]
+visible = false
+
+[node name="Hill_8x8x8_Color1" parent="." unique_id=1243247203 instance=ExtResource("53_qgccw")]
+visible = false
+
+[node name="Hill_12x6x2_Color1" parent="." unique_id=124464571 instance=ExtResource("54_jc42v")]
+visible = false
+
+[node name="Hill_12x6x4_Color1" parent="." unique_id=1209736986 instance=ExtResource("55_uny7h")]
+visible = false
+
+[node name="Hill_12x6x8_Color1" parent="." unique_id=1191585442 instance=ExtResource("56_4ouq2")]
+visible = false
+
+[node name="Hill_12x12x2_Color1" parent="." unique_id=346848371 instance=ExtResource("57_8b5mk")]
+visible = false
+
+[node name="Hill_12x12x4_Color1" parent="." unique_id=1582228261 instance=ExtResource("58_5cwrh")]
+visible = false
+
+[node name="Hill_12x12x8_Color1" parent="." unique_id=1201750412 instance=ExtResource("59_tqmfj")]
+visible = false
+
+[node name="Hill_Cliff_A_InnerCorner_Color1" parent="." unique_id=872932566 instance=ExtResource("60_g7fvt")]
+visible = false
+
+[node name="Hill_Cliff_A_OuterCorner_Color1" parent="." unique_id=1375913612 instance=ExtResource("61_ve1h5")]
+visible = false
+
+[node name="Hill_Cliff_B_Side_Color1" parent="." unique_id=1184883909 instance=ExtResource("62_sa5s7")]
+visible = false
+
+[node name="Hill_Cliff_C_InnerCorner_Color1" parent="." unique_id=154846554 instance=ExtResource("63_s8ulv")]
+visible = false
+
+[node name="Hill_Cliff_C_OuterCorner_Color1" parent="." unique_id=756886087 instance=ExtResource("64_8rb67")]
+visible = false
+
+[node name="Hill_Cliff_D_Side_Color1" parent="." unique_id=612395820 instance=ExtResource("65_kqf4j")]
+visible = false
+
+[node name="Hill_Cliff_E_Color1" parent="." unique_id=1013542473 instance=ExtResource("66_eo2em")]
+visible = false
+
+[node name="Hill_Cliff_F_Side_Color1" parent="." unique_id=1042476726 instance=ExtResource("67_xcfi3")]
+visible = false
+
+[node name="Hill_Cliff_G_InnerCorner_Color1" parent="." unique_id=2044802964 instance=ExtResource("68_714kj")]
+visible = false
+
+[node name="Hill_Cliff_G_OuterCorner_Color1" parent="." unique_id=694104857 instance=ExtResource("69_g2gsu")]
+visible = false
+
+[node name="Hill_Cliff_H_Side_Color1" parent="." unique_id=325479592 instance=ExtResource("70_ksj4q")]
+visible = false
+
+[node name="Hill_Cliff_I_InnerCorner_Color1" parent="." unique_id=1520077878 instance=ExtResource("71_8d54x")]
+visible = false
+
+[node name="Hill_Cliff_I_OuterCorner_Color1" parent="." unique_id=2023261302 instance=ExtResource("72_tvnik")]
+visible = false
+
+[node name="Hill_Cliff_Tall_A_InnerCorner_Color1" parent="." unique_id=1639423329 instance=ExtResource("73_0nj86")]
+visible = false
+
+[node name="Hill_Cliff_Tall_A_OuterCorner_Color1" parent="." unique_id=94000210 instance=ExtResource("74_xlbbl")]
+visible = false
+
+[node name="Hill_Cliff_Tall_B_Side_Color1" parent="." unique_id=460940105 instance=ExtResource("75_rpjio")]
+visible = false
+
+[node name="Hill_Cliff_Tall_C_InnerCorner_Color1" parent="." unique_id=1401433353 instance=ExtResource("76_ix50w")]
+visible = false
+
+[node name="Hill_Cliff_Tall_C_OuterCorner_Color1" parent="." unique_id=1655938590 instance=ExtResource("77_w8afs")]
+visible = false
+
+[node name="Hill_Cliff_Tall_D_Side_Color1" parent="." unique_id=473998609 instance=ExtResource("78_rpgxt")]
+visible = false
+
+[node name="Hill_Cliff_Tall_E_Color1" parent="." unique_id=1390075876 instance=ExtResource("79_vokte")]
+visible = false
+
+[node name="Hill_Cliff_Tall_F_Side_Color1" parent="." unique_id=31076066 instance=ExtResource("80_0k2vi")]
+visible = false
+
+[node name="Hill_Cliff_Tall_G_InnerCorner_Color1" parent="." unique_id=1140768650 instance=ExtResource("81_yvex1")]
+visible = false
+
+[node name="Hill_Cliff_Tall_G_OuterCorner_Color1" parent="." unique_id=1888221582 instance=ExtResource("82_0tkry")]
+visible = false
+
+[node name="Hill_Cliff_Tall_H_Side_Color1" parent="." unique_id=969919183 instance=ExtResource("83_mvu0q")]
+visible = false
+
+[node name="Hill_Cliff_Tall_I_InnerCorner_Color1" parent="." unique_id=1761347189 instance=ExtResource("84_umnne")]
+visible = false
+
+[node name="Hill_Cliff_Tall_I_OuterCorner_Color1" parent="." unique_id=133799099 instance=ExtResource("85_pcmgt")]
+visible = false
+
+[node name="Hill_Top_A_InnerCorner_Color1" parent="." unique_id=1651690475 instance=ExtResource("86_v5jjw")]
+visible = false
+
+[node name="Hill_Top_A_OuterCorner_Color1" parent="." unique_id=1548369062 instance=ExtResource("87_8mvxs")]
+visible = false
+
+[node name="Hill_Top_B_Side_Color1" parent="." unique_id=239157955 instance=ExtResource("88_1avcm")]
+visible = false
+
+[node name="Hill_Top_C_InnerCorner_Color1" parent="." unique_id=1759628632 instance=ExtResource("89_momtc")]
+visible = false
+
+[node name="Hill_Top_C_OuterCorner_Color1" parent="." unique_id=1949939944 instance=ExtResource("90_lqhwy")]
+visible = false
+
+[node name="Hill_Top_D_Side_Color1" parent="." unique_id=1130088853 instance=ExtResource("91_hpgdc")]
+visible = false
+
+[node name="Hill_Top_E_Cap_Color1" parent="." unique_id=2135895630 instance=ExtResource("92_qi8i8")]
+visible = false
+
+[node name="Hill_Top_E_Center_Color1" parent="." unique_id=1449112202 instance=ExtResource("93_wemsb")]
+visible = false
+
+[node name="Hill_Top_F_Side_Color1" parent="." unique_id=871829531 instance=ExtResource("94_totny")]
+visible = false
+
+[node name="Hill_Top_G_InnerCorner_Color1" parent="." unique_id=470971222 instance=ExtResource("95_q0ads")]
+visible = false
+
+[node name="Hill_Top_G_OuterCorner_Color1" parent="." unique_id=2117144190 instance=ExtResource("96_6jk7d")]
+visible = false
+
+[node name="Hill_Top_H_Side_Color1" parent="." unique_id=1794964859 instance=ExtResource("97_xl3h3")]
+visible = false
+
+[node name="Hill_Top_I_InnerCorner_Color1" parent="." unique_id=1047581744 instance=ExtResource("98_aus41")]
+visible = false
+
+[node name="Hill_Top_I_OuterCorner_Color1" parent="." unique_id=1044405725 instance=ExtResource("99_sysgb")]
+visible = false
+
+[node name="Rock_1_A_Color1" parent="." unique_id=159402771 instance=ExtResource("100_2bchk")]
+visible = false
+
+[node name="Rock_1_B_Color1" parent="." unique_id=1418484375 instance=ExtResource("101_q5sqb")]
+visible = false
+
+[node name="Rock_1_C_Color1" parent="." unique_id=950644137 instance=ExtResource("102_7ahqv")]
+visible = false
+
+[node name="Rock_1_D_Color1" parent="." unique_id=786052854 instance=ExtResource("103_8b05n")]
+visible = false
+
+[node name="Rock_1_E_Color1" parent="." unique_id=922796464 instance=ExtResource("104_fsx36")]
+visible = false
+
+[node name="Rock_1_F_Color1" parent="." unique_id=1640658421 instance=ExtResource("105_c7e8w")]
+visible = false
+
+[node name="Rock_1_G_Color1" parent="." unique_id=1111018542 instance=ExtResource("106_y6ur1")]
+visible = false
+
+[node name="Rock_1_H_Color1" parent="." unique_id=582119873 instance=ExtResource("107_03mn3")]
+visible = false
+
+[node name="Rock_1_I_Color1" parent="." unique_id=1141970987 instance=ExtResource("108_j64wu")]
+visible = false
+
+[node name="Rock_1_J_Color1" parent="." unique_id=1360203388 instance=ExtResource("109_rnqwc")]
+visible = false
+
+[node name="Rock_1_K_Color1" parent="." unique_id=1017234968 instance=ExtResource("110_fvjqm")]
+visible = false
+
+[node name="Rock_1_L_Color1" parent="." unique_id=283627681 instance=ExtResource("111_5r14b")]
+visible = false
+
+[node name="Rock_1_M_Color1" parent="." unique_id=1915154255 instance=ExtResource("112_impvr")]
+visible = false
+
+[node name="Rock_1_N_Color1" parent="." unique_id=1039795712 instance=ExtResource("113_1ak17")]
+visible = false
+
+[node name="Rock_1_O_Color1" parent="." unique_id=511567878 instance=ExtResource("114_887e3")]
+visible = false
+
+[node name="Rock_1_P_Color1" parent="." unique_id=1611039244 instance=ExtResource("115_htyvr")]
+visible = false
+
+[node name="Rock_1_Q_Color1" parent="." unique_id=1972350169 instance=ExtResource("116_4pg2r")]
+visible = false
+
+[node name="Rock_2_A_Color1" parent="." unique_id=1808169024 instance=ExtResource("117_bxydg")]
+visible = false
+
+[node name="Rock_2_B_Color1" parent="." unique_id=2041437215 instance=ExtResource("118_p5wyc")]
+visible = false
+
+[node name="Rock_2_C_Color1" parent="." unique_id=320833431 instance=ExtResource("119_4pig3")]
+visible = false
+
+[node name="Rock_2_D_Color1" parent="." unique_id=720390684 instance=ExtResource("120_6isbw")]
+visible = false
+
+[node name="Rock_2_E_Color1" parent="." unique_id=2019217128 instance=ExtResource("121_iwc5k")]
+visible = false
+
+[node name="Rock_2_F_Color1" parent="." unique_id=988947779 instance=ExtResource("122_scku6")]
+visible = false
+
+[node name="Rock_2_G_Color1" parent="." unique_id=1118674758 instance=ExtResource("123_0rscj")]
+visible = false
+
+[node name="Rock_2_H_Color1" parent="." unique_id=514641872 instance=ExtResource("124_823yf")]
+visible = false
+
+[node name="Rock_3_A_Color1" parent="." unique_id=955822687 instance=ExtResource("125_t3t60")]
+visible = false
+
+[node name="Rock_3_B_Color1" parent="." unique_id=1859051555 instance=ExtResource("126_116pn")]
+visible = false
+
+[node name="Rock_3_C_Color1" parent="." unique_id=1276453503 instance=ExtResource("127_xwqa5")]
+visible = false
+
+[node name="Rock_3_D_Color1" parent="." unique_id=387699486 instance=ExtResource("128_gvrv7")]
+visible = false
+
+[node name="Rock_3_E_Color1" parent="." unique_id=1730602854 instance=ExtResource("129_odmo3")]
+visible = false
+
+[node name="Rock_3_F_Color1" parent="." unique_id=855246092 instance=ExtResource("130_eeunf")]
+visible = false
+
+[node name="Rock_3_G_Color1" parent="." unique_id=1638569584 instance=ExtResource("131_b7apt")]
+visible = false
+
+[node name="Rock_3_H_Color1" parent="." unique_id=188975463 instance=ExtResource("132_4hf10")]
+visible = false
+
+[node name="Rock_3_I_Color1" parent="." unique_id=1559638284 instance=ExtResource("133_ojgfn")]
+visible = false
+
+[node name="Rock_3_J_Color1" parent="." unique_id=1895921866 instance=ExtResource("134_kytq8")]
+visible = false
+
+[node name="Rock_3_K_Color1" parent="." unique_id=766297885 instance=ExtResource("135_er8cn")]
+visible = false
+
+[node name="Rock_3_L_Color1" parent="." unique_id=1623541886 instance=ExtResource("136_nvxra")]
+visible = false
+
+[node name="Rock_3_M_Color1" parent="." unique_id=1193404105 instance=ExtResource("137_m2yuo")]
+visible = false
+
+[node name="Rock_3_N_Color1" parent="." unique_id=1423886586 instance=ExtResource("138_nq0m6")]
+visible = false
+
+[node name="Rock_3_O_Color1" parent="." unique_id=1950181289 instance=ExtResource("139_y2ewo")]
+visible = false
+
+[node name="Rock_3_P_Color1" parent="." unique_id=443240698 instance=ExtResource("140_1hudp")]
+visible = false
+
+[node name="Rock_3_Q_Color1" parent="." unique_id=1186344610 instance=ExtResource("141_mlj52")]
+visible = false
+
+[node name="Rock_3_R_Color1" parent="." unique_id=409600085 instance=ExtResource("142_dst33")]
+visible = false
+
+[node name="Rock_4_A_Color1" parent="." unique_id=34814091 instance=ExtResource("143_3g30d")]
+visible = false
+
+[node name="Rock_4_B_Color1" parent="." unique_id=2083083696 instance=ExtResource("144_ogwox")]
+visible = false
+
+[node name="Rock_4_C_Color1" parent="." unique_id=1497336357 instance=ExtResource("145_hk8vv")]
+visible = false
+
+[node name="Rock_4_D_Color1" parent="." unique_id=1978124960 instance=ExtResource("146_pkb26")]
+visible = false
+
+[node name="Rock_4_E_Color1" parent="." unique_id=804971968 instance=ExtResource("147_yfiqi")]
+visible = false
+
+[node name="Rock_4_F_Color1" parent="." unique_id=822907650 instance=ExtResource("148_ji6yc")]
+visible = false
+
+[node name="Rock_4_G_Color1" parent="." unique_id=696462872 instance=ExtResource("149_6htr7")]
+visible = false
+
+[node name="Rock_4_H_Color1" parent="." unique_id=1134623555 instance=ExtResource("150_gyqtl")]
+visible = false
+
+[node name="Rock_5_A_Color1" parent="." unique_id=582790826 instance=ExtResource("151_g71a6")]
+visible = false
+
+[node name="Rock_5_B_Color1" parent="." unique_id=1982899156 instance=ExtResource("152_g8xch")]
+visible = false
+
+[node name="Rock_5_C_Color1" parent="." unique_id=525426451 instance=ExtResource("153_kyvqf")]
+visible = false
+
+[node name="Rock_5_D_Color1" parent="." unique_id=210208193 instance=ExtResource("154_hpbd0")]
+visible = false
+
+[node name="Rock_5_E_Color1" parent="." unique_id=1858655232 instance=ExtResource("155_b4ksn")]
+visible = false
+
+[node name="Rock_5_F_Color1" parent="." unique_id=2023536111 instance=ExtResource("156_fe5pu")]
+visible = false
+
+[node name="Rock_5_G_Color1" parent="." unique_id=192709197 instance=ExtResource("157_a223f")]
+visible = false
+
+[node name="Rock_5_H_Color1" parent="." unique_id=1594488582 instance=ExtResource("158_7cfq2")]
+visible = false
+
+[node name="Rock_6_A_Color1" parent="." unique_id=1227246984 instance=ExtResource("159_r6bw5")]
+visible = false
+
+[node name="Rock_6_B_Color1" parent="." unique_id=1920740840 instance=ExtResource("160_b4frr")]
+visible = false
+
+[node name="Rock_6_C_Color1" parent="." unique_id=1279263862 instance=ExtResource("161_8buv3")]
+visible = false
+
+[node name="Rock_6_D_Color1" parent="." unique_id=1905456734 instance=ExtResource("162_qgyou")]
+visible = false
+
+[node name="Rock_6_E_Color1" parent="." unique_id=73241717 instance=ExtResource("163_x3f6w")]
+visible = false
+
+[node name="Rock_6_F_Color1" parent="." unique_id=94561925 instance=ExtResource("164_7yi4a")]
+visible = false
+
+[node name="Rock_6_G_Color1" parent="." unique_id=619747529 instance=ExtResource("165_sc36o")]
+visible = false
+
+[node name="Rock_6_H_Color1" parent="." unique_id=1023637064 instance=ExtResource("166_ygxot")]
+visible = false
+
+[node name="Tree_1_A_Color1" parent="." unique_id=1999669753 instance=ExtResource("167_4mnf8")]
+visible = false
+
+[node name="Tree_1_B_Color1" parent="." unique_id=1455372875 instance=ExtResource("168_8di36")]
+visible = false
+
+[node name="Tree_1_C_Color1" parent="." unique_id=1917509275 instance=ExtResource("169_ynurf")]
+visible = false
+
+[node name="Tree_2_A_Color1" parent="." unique_id=1950249404 instance=ExtResource("170_0q1yo")]
+visible = false
+
+[node name="Tree_2_B_Color1" parent="." unique_id=600435204 instance=ExtResource("171_exx5g")]
+visible = false
+
+[node name="Tree_2_C_Color1" parent="." unique_id=200850702 instance=ExtResource("172_6q7qd")]
+visible = false
+
+[node name="Tree_2_D_Color1" parent="." unique_id=2033787374 instance=ExtResource("173_6tfcb")]
+visible = false
+
+[node name="Tree_2_E_Color1" parent="." unique_id=535611547 instance=ExtResource("174_600fo")]
+visible = false
+
+[node name="Tree_3_A_Color1" parent="." unique_id=1519666295 instance=ExtResource("175_bv75g")]
+visible = false
+
+[node name="Tree_3_B_Color1" parent="." unique_id=1747047932 instance=ExtResource("176_ddn8s")]
+visible = false
+
+[node name="Tree_3_C_Color1" parent="." unique_id=9987117 instance=ExtResource("177_8ikcy")]
+visible = false
+
+[node name="Tree_4_A_Color1" parent="." unique_id=2035651352 instance=ExtResource("178_eki3e")]
+visible = false
+
+[node name="Tree_4_B_Color1" parent="." unique_id=2109383101 instance=ExtResource("179_h3bfv")]
+visible = false
+
+[node name="Tree_4_C_Color1" parent="." unique_id=1652964925 instance=ExtResource("180_b24pv")]
+visible = false
+
+[node name="Tree_5_A_Color1" parent="." unique_id=1601552172 instance=ExtResource("181_mklwi")]
+visible = false
+
+[node name="Tree_5_B_Color1" parent="." unique_id=1697502989 instance=ExtResource("182_gyvta")]
+visible = false
+
+[node name="Tree_5_C_Color1" parent="." unique_id=997088004 instance=ExtResource("183_y7soe")]
+visible = false
+
+[node name="Tree_5_D_Color1" parent="." unique_id=1168785160 instance=ExtResource("184_lrsb3")]
+visible = false
+
+[node name="Tree_5_E_Color1" parent="." unique_id=1215659352 instance=ExtResource("185_5pg2b")]
+visible = false
+
+[node name="Tree_5_F_Color1" parent="." unique_id=608682365 instance=ExtResource("186_y2ovp")]
+visible = false
+
+[node name="Tree_6_A_Color1" parent="." unique_id=711449089 instance=ExtResource("187_7b2rg")]
+visible = false
+
+[node name="Tree_6_B_Color1" parent="." unique_id=1889957176 instance=ExtResource("188_jvyku")]
+visible = false
+
+[node name="Tree_6_C_Color1" parent="." unique_id=973925443 instance=ExtResource("189_28chs")]
+visible = false
+
+[node name="Tree_7_A_Color1" parent="." unique_id=1154371361 instance=ExtResource("190_la4s7")]
+visible = false
+
+[node name="Tree_7_B_Color1" parent="." unique_id=83239182 instance=ExtResource("191_pooe0")]
+visible = false
+
+[node name="Tree_7_C_Color1" parent="." unique_id=267207593 instance=ExtResource("192_jscxk")]
+visible = false
+
+[node name="Tree_Bare_1_A_Color1" parent="." unique_id=1098136597 instance=ExtResource("193_85bbk")]
+visible = false
+
+[node name="Tree_Bare_1_B_Color1" parent="." unique_id=441038511 instance=ExtResource("194_6ufvd")]
+visible = false
+
+[node name="Tree_Bare_1_C_Color1" parent="." unique_id=1361070138 instance=ExtResource("195_ggth4")]
+visible = false
+
+[node name="Tree_Bare_2_A_Color1" parent="." unique_id=1658791220 instance=ExtResource("196_kx4by")]
+visible = false
+
+[node name="Tree_Bare_2_B_Color1" parent="." unique_id=766581888 instance=ExtResource("197_qu6cd")]
+visible = false
+
+[node name="Tree_Bare_2_C_Color1" parent="." unique_id=811816278 instance=ExtResource("198_f5h0t")]
+visible = false
