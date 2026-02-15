@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1h71rrf0a4gc"
-path="res://.godot/imported/Protagonist_A.fbx-a11d46999dd6282def211b5eb69a7bf8.scn"
+uid="uid://c5527dpyc8v1d"
+path="res://.godot/imported/Mage.glb-ca78029d1a5194c24a3f2cf4056c582c.scn"
 
 [deps]
 
-source_file="res://game/models/characters/Kaykit/kaykit_mistery/Protagonists/characters/Protagonist_A.fbx"
-dest_files=["res://.godot/imported/Protagonist_A.fbx-a11d46999dd6282def211b5eb69a7bf8.scn"]
+source_file="res://game/models/characters/Kaykit/characters/mage/Mage.glb"
+dest_files=["res://.godot/imported/Mage.glb-ca78029d1a5194c24a3f2cf4056c582c.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1
