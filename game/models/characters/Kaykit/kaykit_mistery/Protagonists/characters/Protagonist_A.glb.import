@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bftopbttlp7xp"
-path="res://.godot/imported/Protagonist_B.glb-f2163281570bfa4b5a048974f3763d8e.scn"
+uid="uid://c2bo51twt6far"
+path="res://.godot/imported/Protagonist_A.glb-19570d2b53d89e046d11391e092c4262.scn"
 
 [deps]
 
-source_file="res://game/models/characters/kaykit_mistery/Protagonists/characters/Protagonist_B.glb"
-dest_files=["res://.godot/imported/Protagonist_B.glb-f2163281570bfa4b5a048974f3763d8e.scn"]
+source_file="res://game/models/characters/Kaykit/kaykit_mistery/Protagonists/characters/Protagonist_A.glb"
+dest_files=["res://.godot/imported/Protagonist_A.glb-19570d2b53d89e046d11391e092c4262.scn"]
 
 [params]
 

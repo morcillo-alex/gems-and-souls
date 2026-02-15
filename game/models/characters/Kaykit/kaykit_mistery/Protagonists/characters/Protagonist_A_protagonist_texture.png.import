@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8q75c6w2q5id"
-path.s3tc="res://.godot/imported/Protagonist_A_protagonist_texture.png-94c474a692aea432a25d47abaed8e87a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Protagonist_A_protagonist_texture.png-9a06c49c03b72b1f17024c876c3a7cee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://game/models/characters/kaykit_mistery/Protagonists/characters/Protagonist_A_protagonist_texture.png"
-dest_files=["res://.godot/imported/Protagonist_A_protagonist_texture.png-94c474a692aea432a25d47abaed8e87a.s3tc.ctex"]
+source_file="res://game/models/characters/Kaykit/kaykit_mistery/Protagonists/characters/Protagonist_A_protagonist_texture.png"
+dest_files=["res://.godot/imported/Protagonist_A_protagonist_texture.png-9a06c49c03b72b1f17024c876c3a7cee.s3tc.ctex"]
 
 [params]
 
