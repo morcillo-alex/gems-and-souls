@@ -12,8 +12,11 @@
 #include <godot_cpp/godot.hpp>
 
 #include "Game/HeroPlayer.hpp"
+#include "Rebel/CharacterBody/BaseCharacterBody3D.hpp"
 #include "Rebel/CharacterBody/PlatformerCharacterBody3D.hpp"
 #include "Rebel/CharacterBody/PlayerPlatformerCharacterBody3D.hpp"
+#include "Rebel/CharacterBody/TopDownCharacterBody3D.hpp"
+#include "Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp"
 
 
 
@@ -23,8 +26,11 @@ void initialize_gems_and_souls_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+	GDREGISTER_ABSTRACT_CLASS(Rebel::CharacterBody::BaseCharacterBody3D);
 	GDREGISTER_CLASS(Rebel::CharacterBody::PlatformerCharacterBody3D);
 	GDREGISTER_CLASS(Rebel::CharacterBody::PlayerPlatformerCharacterBody3D);
+	GDREGISTER_CLASS(Rebel::CharacterBody::TopDownCharacterBody3D);
+	GDREGISTER_CLASS(Rebel::CharacterBody::PlayerTopDownCharacterBody3D);
 	GDREGISTER_CLASS(GaS::HeroPlayer);
 
 }

@@ -7,10 +7,16 @@ message(STATUS "Building the Rebel Framework by Alejandro Morcillo Montejo - All
 add_library(${PROJECT_NAME} STATIC
         include/Rebel/Core.hpp
         src/Framework.cpp
+        src/BaseCharacterBody3D.cpp
+        include/Rebel/CharacterBody/BaseCharacterBody3D.hpp
         src/PlatformerCharacterBody3D.cpp
         include/Rebel/CharacterBody/PlatformerCharacterBody3D.hpp
         src/PlayerPlatformerCharacterBody3D.cpp
         include/Rebel/CharacterBody/PlayerPlatformerCharacterBody3D.hpp
+        src/TopDownCharacterBody3D.cpp
+        include/Rebel/CharacterBody/TopDownCharacterBody3D.hpp
+        src/PlayerTopDownCharacterBody3D.cpp
+        include/Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC godot-cpp)
 

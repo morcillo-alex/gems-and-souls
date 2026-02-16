@@ -7,15 +7,15 @@ gantt
     axisFormat %d %b
 
     section Game Design
-    Project Scaffolding                 :design1, 2026-02-14, 1d
-    Github repository                   :design2, 2026-02-14, 1d
-    GDD template creation               :design3, 2026-02-14, 1d
-    Document baseline GDD               :design4, 2026-02-14, 1d
+    Project Scaffolding                 :done, design1, 2026-02-14, 1d
+    Github repository                   :done, design2, 2026-02-14, 1d
+    GDD template creation               :done, design3, 2026-02-14, 1d
+    Document baseline GDD               :done, design4, 2026-02-14, 1d
 
     section Core Gameplay
-    Character movement                 :core1, 2026-02-14, 3d
-    Collisions                         :core2, 2026-02-14, 3d
-    Basic combat (the "feel")          :core3, 2026-02-14, 3d
+    Character movement                 :done, core1, 2026-02-14, 3d
+    Collisions                         :done, core2, 2026-02-14, 3d
+    Basic combat (the "feel")          :active, core3, 2026-02-14, 3d
 
     section Systems
     Health system                      :sys0, 2026-02-17, 1d

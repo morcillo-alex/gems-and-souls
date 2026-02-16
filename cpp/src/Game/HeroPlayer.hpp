@@ -6,11 +6,11 @@
 #pragma once
 #include "godot_cpp/classes/animation_node_state_machine_playback.hpp"
 #include "godot_cpp/classes/animation_tree.hpp"
-#include "Rebel/CharacterBody/PlayerPlatformerCharacterBody3D.hpp"
+#include "Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp"
 
 namespace GaS {
-    class HeroPlayer : public Rebel::CharacterBody::PlayerPlatformerCharacterBody3D {
-        GDCLASS(HeroPlayer, Rebel::CharacterBody::PlayerPlatformerCharacterBody3D);
+    class HeroPlayer : public Rebel::CharacterBody::PlayerTopDownCharacterBody3D {
+        GDCLASS(HeroPlayer, Rebel::CharacterBody::PlayerTopDownCharacterBody3D);
 
         godot::AnimationTree* animationTree{nullptr};
         godot::Ref<godot::AnimationNodeStateMachinePlayback> animationStateMachine{nullptr};
