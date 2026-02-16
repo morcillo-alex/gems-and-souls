@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell -Command \"Format-Hex ''C:\\\\Users\\\\olver\\\\projects\\\\Godot\\\\gems-and-souls\\\\GemsAndSoulsGame.gdextension'' | Select-Object -First 3\")"
+      "Bash(powershell -Command \"Format-Hex ''C:\\\\Users\\\\olver\\\\projects\\\\Godot\\\\gems-and-souls\\\\GemsAndSoulsGame.gdextension'' | Select-Object -First 3\")",
+      "Bash(ls -la \"C:\\\\Users\\\\Usuario\\\\CLionProjects\\\\gems-and-souls\\\\game\\\\models\\\\animations\"\" 2>/dev/null || echo \"Path not found \")"
     ]
   }
 }
