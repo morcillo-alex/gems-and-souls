@@ -64,7 +64,7 @@ void Ability::_bind_methods() {
     ADD_GROUP("Ability", "");
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "name",          PROPERTY_HINT_NONE),                         "set_name",          "get_name");
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "description",   PROPERTY_HINT_MULTILINE_TEXT),               "set_description",   "get_description");
-    ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "icon",          PROPERTY_HINT_RESOURCE_TYPE, "Texture2D"),   "set_icon",          "get_icon");
+    ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "icon",           PROPERTY_HINT_RESOURCE_TYPE, "Texture2D"),  "set_icon",          "get_icon");
     ADD_PROPERTY(PropertyInfo(Variant::BOOL,   "enabled"),                                                   "set_enabled",       "get_enabled");
     ADD_PROPERTY(PropertyInfo(Variant::FLOAT,  "cost",          PROPERTY_HINT_RANGE, "0,99999,0.1,or_greater"), "set_cost",       "get_cost");
     ADD_PROPERTY(PropertyInfo(Variant::INT,    "current_level", PROPERTY_HINT_RANGE, "0,10,1"),              "set_current_level", "get_current_level");

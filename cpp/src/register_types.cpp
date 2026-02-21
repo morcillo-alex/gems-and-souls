@@ -21,6 +21,7 @@
 #include "Rebel/Ability/Ability.hpp"
 #include "Rebel/Ability/AbilityNode.hpp"
 #include "Rebel/Ability/AbilityTree.hpp"
+#include "Rebel/Ability/AbilityScriptContainerNode.hpp"
 
 
 
@@ -38,6 +39,7 @@ void initialize_gems_and_souls_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(GaS::HeroPlayer);
 
 	// Ability System — registration order matters: leaf types before container types
+	GDREGISTER_CLASS(Rebel::Ability::AbilityScriptContainerNode);
 	GDREGISTER_CLASS(Rebel::Ability::AbilityImprovement);
 	GDREGISTER_CLASS(Rebel::Ability::Ability);
 	GDREGISTER_CLASS(Rebel::Ability::AbilityNode);

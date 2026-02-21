@@ -217,7 +217,7 @@ Deathy observes player decisions and adjusts his behavior accordingly. Player ch
 
 The Ability System is a **designer-first, data-driven framework** built into RebelFramework. All configuration is done through Godot's inspector using `.tres` Resource files — no code changes required to define new abilities, trees, or upgrade paths.
 
-> **Technical Note:** Implemented as three `Resource`-derived C++ classes registered via GDExtension: `Rebel::Ability::AbilityImprovement`, `Rebel::Ability::Ability`, `Rebel::Ability::AbilityNode`, and `Rebel::Ability::AbilityTree`. Headers under `cpp/RebelFramework/include/Rebel/Ability/`.
+> **Technical Note:** Implemented as `Resource`-derived C++ classes (`AbilityImprovement`, `Ability`, `AbilityNode`, `AbilityTree`) plus one `Node`-derived class (`AbilityScriptContainerNode`), all registered via GDExtension. Headers under `cpp/RebelFramework/include/Rebel/Ability/`.
 
 ---
 
@@ -242,6 +242,15 @@ classDiagram
         +int current_level
     }
 
+    class AbilityScriptContainerNode {
+        <<Node>>
+        +Ref~Ability~ ability
+        +on_activated()
+        +on_deactivated()
+        +_on_activated() GDVirtual
+        +_on_deactivated() GDVirtual
+    }
+
     class AbilityNode {
         +Ref~Ability~ ability
         +Array prerequisites
@@ -252,9 +261,12 @@ classDiagram
         +Array nodes
         +Array get_root_nodes()
         +bool try_unlock(node)
+        +Node try_activate(node, character)
+        +void deactivate(container)
     }
 
     Ability "1" --> "10" AbilityImprovement : has improvements
+    AbilityScriptContainerNode "0..1" --> "1" Ability : serves
     AbilityNode "1" --> "1" Ability : holds
     AbilityNode "0..*" --> "0..*" AbilityNode : prerequisites
     AbilityTree "1" --> "0..*" AbilityNode : contains
@@ -290,7 +302,7 @@ A single learnable or unlockable skill. Create one `.tres` file per ability.
 | `name` | `String` | Display name shown in the ability tree UI. |
 | `description` | `String` | Base description before any improvements are applied. |
 | `icon` | `Ref<Texture2D>` | The ability's icon shown in the tree and HUD. Fallback for all `AbilityImprovement` icons that are `null`. |
-| `enabled` | `bool` | Whether this ability is currently unlocked and active. Set to `true` by `AbilityTree.try_unlock()`. Read-only in the tree UI — do not manually set this in game code; use `try_unlock()` instead. |
+| `enabled` | `bool` | Whether this ability is currently unlocked and active. Set to `true` by `AbilityTree.try_unlock()`. Read-only in the tree UI — do not manually set this in game code; use `try_unlock()` or `try_activate()` instead. |
 | `cost` | `float` | The resource cost to **unlock** this ability (i.e., to set `enabled = true`). Separate from improvement costs. |
 | `improvements` | `Array[AbilityImprovement]` | 10 pre-populated improvement slots (indices 0–9 = levels 1–10). Each slot is editable in the inspector. Slot 0 = Level 1, Slot 9 = Level 10. |
 | `current_level` | `int` | The currently active improvement level (0 = no improvements purchased, 1–10 = that level active). |
@@ -302,6 +314,55 @@ When rendering improvement level `N`, check `improvements[N-1].icon`. If it is `
 `Ability.cost` = cost to unlock the ability itself (prerequisites must be met first).
 `AbilityImprovement.cost` = cost to purchase each individual upgrade tier.
 The game system defines what currency these costs consume — they are intentionally unitless floats.
+
+---
+
+#### `AbilityScriptContainerNode` — Scene-Resident Ability Behaviour
+
+A `Node`-derived class that lives **permanently inside the character scene** as a child node. Each active ability gets one container placed directly in the character scene in the Godot editor — no separate `.tscn` files, no dynamic instantiation at runtime.
+
+The container is **disabled by default** (`PROCESS_MODE_DISABLED`) and enabled exclusively by `AbilityTree`. When activated, `_process()` and `_physics_process()` begin running automatically via the scene tree. When deactivated, the node is disabled again — it is never removed from the tree.
+
+**Why scene-resident nodes instead of instantiated scenes?**
+Keeping all ability containers inside the character scene means the full character setup is visible and editable in one place. There are no floating `.tscn` files to track, no dynamic instantiation to manage, and the character scene is entirely self-contained. The designer sees exactly which abilities a character has at a glance by looking at the scene tree.
+
+| Property / Method | Type | Description |
+|-------------------|------|-------------|
+| `ability` | `Ref<Ability>` | The Ability resource this container serves. Set in the Inspector. `AbilityTree` matches containers to ability nodes by comparing this reference. |
+| `on_activated()` | method | Enables processing (`PROCESS_MODE_INHERIT`) then dispatches `_on_activated()`. Called by `AbilityTree.try_activate()`. |
+| `on_deactivated()` | method | Dispatches `_on_deactivated()` then disables processing (`PROCESS_MODE_DISABLED`). Called by `AbilityTree.deactivate()`. |
+
+**GDScript usage:**
+
+```gdscript
+extends AbilityScriptContainerNode
+
+func _on_activated() -> void:
+    # One-time setup: connect signals, apply initial effects, start timers, etc.
+    # The character is always get_parent().
+    pass
+
+func _process(delta: float) -> void:
+    # Runs every frame while the ability is active.
+    pass
+
+func _on_deactivated() -> void:
+    # Cleanup: reset state, disconnect signals, stop effects.
+    pass
+```
+
+**Lifecycle diagram:**
+
+```mermaid
+stateDiagram-v2
+    [*] --> InScene : Node placed in character scene\nprocess_mode = DISABLED
+    InScene --> Activated : try_activate() → on_activated()\nprocess_mode = INHERIT
+    Activated --> Running : _process() each frame
+    Running --> Deactivated : deactivate() → on_deactivated()\nprocess_mode = DISABLED
+    Deactivated --> InScene : Node remains in scene\nready to activate again
+```
+
+> **Technical Note:** `AbilityScriptContainerNode` is registered via `GDREGISTER_CLASS` in `cpp/src/register_types.cpp`. GDScript virtuals declared with `GDVIRTUAL0(_on_activated)` / `GDVIRTUAL0(_on_deactivated)`, dispatched via `GDVIRTUAL_CALL`. See `cpp/RebelFramework/include/Rebel/Ability/AbilityScriptContainerNode.hpp`.
 
 ---
 
@@ -352,13 +413,21 @@ Groups all `AbilityNode` resources into one serializable asset. One `AbilityTree
 Returns all nodes that have an empty `prerequisites` array. These are the starting points of the tree — abilities available to unlock from the beginning.
 
 `try_unlock(node: Ref<AbilityNode>) → bool`
-Attempts to unlock the ability on the given node:
+Data-only unlock. Attempts to mark the ability as unlocked:
 1. Calls `node.can_unlock()` — if `false`, returns `false` immediately.
-2. Checks that the player has sufficient resources to cover `node.ability.cost` (game code must validate this externally or via a signal/callback).
+2. If the ability is already enabled, returns `false`.
 3. Sets `node.ability.enabled = true`.
 4. Returns `true` on success.
 
-> [!DECISION] `try_unlock()` currently handles prerequisite checking inside the framework. Resource cost deduction (gems, XP, etc.) should be handled by game code before or after calling `try_unlock()`, since the framework has no knowledge of the game's economy. Define the handshake pattern: does game code check cost → call `try_unlock()`, or does `try_unlock()` emit a signal the game code consumes?
+Use this for **passive abilities** (no container in the scene) where the game just reads the `enabled` flag to apply stat changes.
+
+`try_activate(node: Ref<AbilityNode>, character: Node) → Node`
+Unlock + enable. Calls `try_unlock()` first, then searches `character`'s direct children for an `AbilityScriptContainerNode` whose `ability` property matches `node.ability`. If found, calls `container.on_activated()` (which sets `PROCESS_MODE_INHERIT`) and returns it. Returns `null` if unlock failed or no matching container exists on the character.
+
+`deactivate(container: Node) → void`
+Calls `container.on_deactivated()` (which sets `PROCESS_MODE_DISABLED`). The node remains in the character scene — it is never freed. Safe to call with `null`.
+
+> [!DECISION] `try_unlock()` / `try_activate()` handle prerequisite checking inside the framework. Resource cost deduction (gems, XP, etc.) must be handled by game code **before** calling these methods, since the framework has no knowledge of the game's economy. Define the handshake: does game code check cost → call `try_activate()`, or does the framework emit a signal the game consumes?
 
 ---
 
@@ -373,21 +442,32 @@ For each ability, create a new `Ability` resource (`.tres`) in the Godot editor:
 4. The 10 `improvements` slots are pre-populated. Expand each to fill in `description` and `cost`. Optionally assign a unique `icon` for milestone levels.
 5. Leave `enabled = false` and `current_level = 0` — these are managed at runtime by the tree.
 
-**Step 2 — Build the node graph**
+**Step 2 — Add containers to the character scene (active abilities only)**
+
+For abilities with runtime behaviour, open the character's `.tscn` and add a child node:
+1. In the Scene panel, select the character root node → **Add Child Node** → search for `AbilityScriptContainerNode`.
+2. In the Inspector, assign the matching `Ability` resource to the `ability` property.
+3. Attach a GDScript that `extends AbilityScriptContainerNode`. Override `_on_activated()`, `_process()`, and `_on_deactivated()` as needed.
+4. Add any child nodes (particles, timers, audio players) under the container node.
+5. The node's `process_mode` is set to **Disabled** by default — do not change this manually.
+
+For passive abilities (stat bonuses read directly from the `Ability` resource), skip this step — no container is needed.
+
+**Step 3 — Build the node graph**
 
 For each ability, create an `AbilityNode` resource:
 1. Right-click → **New Resource** → select `AbilityNode`.
 2. Assign the corresponding `Ability` to the `ability` slot.
 3. In `prerequisites`, add references to any `AbilityNode` resources that must be unlocked first. Leave empty for root abilities.
 
-**Step 3 — Assemble the tree**
+**Step 4 — Assemble the tree**
 
 Create one `AbilityTree` resource per character or skill category:
 1. Right-click → **New Resource** → select `AbilityTree`.
 2. In `nodes`, add all `AbilityNode` resources for this tree (the full flat list).
 3. Save as a `.tres` file and assign it to the relevant game node/component.
 
-**Step 4 — Runtime unlock flow**
+**Step 5 — Runtime activation flow**
 
 ```mermaid
 flowchart TD
@@ -396,11 +476,14 @@ flowchart TD
     Check -- Yes --> Cost{Player has enough\nresources?}
     Cost -- No --> ShowCost[Show insufficient\nresource feedback]
     Cost -- Yes --> Deduct[Deduct cost from\nplayer resources]
-    Deduct --> Unlock[tree.try_unlock node\nsets ability.enabled = true]
+    Deduct --> HasContainer{AbilityScriptContainerNode\nfound on character?}
+    HasContainer -- No\nPassive ability --> Unlock[tree.try_unlock node\nsets ability.enabled = true]
+    HasContainer -- Yes\nActive ability --> Activate[tree.try_activate node, character\nunlocks + enables container\ncalls on_activated]
     Unlock --> Refresh[Refresh tree UI\nshow newly available nodes]
+    Activate --> Refresh
 ```
 
-**Step 5 — Upgrade improvements**
+**Step 7 — Upgrade improvements**
 
 Once an ability is enabled, its improvement levels are purchased separately:
 - Check `ability.current_level` to know the current tier.
@@ -694,6 +777,11 @@ All classes are registered in `cpp/src/register_types.cpp` with entry point `gem
 | `PlatformerCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Platformer character body (unused) |
 | `PlayerPlatformerCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Player platformer controller (unused) |
 | `HeroPlayer` | `GaS` | Concrete | Game-specific hero with animations |
+| `AbilityScriptContainerNode` | `Rebel::Ability` | Node | Scene-resident container for ability runtime behaviour |
+| `AbilityImprovement` | `Rebel::Ability` | Resource | Single upgrade level within an ability |
+| `Ability` | `Rebel::Ability` | Resource | Core ability definition (data only) |
+| `AbilityNode` | `Rebel::Ability` | Resource | Prerequisite-graph node wrapping an Ability |
+| `AbilityTree` | `Rebel::Ability` | Resource | Full ability tree for a character |
 
 **Custom Icon:** `PlatformerCharacterBody3D` has custom editor icon defined in `.gdextension` file.
 
@@ -803,3 +891,5 @@ Not applicable — single-player experience.
 | 2026-02-16 | Added roadmap link to Section 11. Updated development phases with status. Resolved release date question (2026-02-27). Reviewed all callouts: added specific suggestions and structured priorities to DECISION items across combat, interaction, audio, UI, VFX, dialogue, and save/load sections. |
 | 2026-02-21 | Added Section 4.6 — Ability System. Full designer documentation for AbilityImprovement, Ability, AbilityNode, and AbilityTree resources: class overview with Mermaid diagram, property tables, icon fallback rules, cost interpretation, prerequisite DAG with example, designer step-by-step workflow, and runtime unlock flow diagram. |
 | 2026-02-21 | Updated mechanics sections (3.1-3.5) to reflect actual code implementation: corrected from platformer to top-down movement, added camera system details (SpringArm3D with -55° pitch angle), updated combat system with actual implementation details (charge state tracking), removed jump mechanics, added animation system section (AnimationTree with state machine). Updated architecture overview (10.2) with complete character controller class hierarchy diagram showing BaseCharacterBody3D → TopDownCharacterBody3D → PlayerTopDownCharacterBody3D → HeroPlayer inheritance chain. All technical notes now reference correct class names and file paths. |
+| 2026-02-21 | Extended Section 4.6 Ability System with node-based behavior architecture. Added `AbilityBehaviorNode` class (Node-derived GDExtension base with `_on_activated` / `_on_deactivated` GDScript virtuals). Added `behavior_scene: PackedScene` property to `Ability`. Added `try_activate(node, parent)` and `deactivate(behavior_node)` methods to `AbilityTree`. Updated class diagram, property tables, designer workflow (Steps 1–7), and runtime activation flowchart to reflect passive vs. active ability distinction. Updated Section 10.3 GDExtension class table with all Ability System classes. |
+| 2026-02-21 | Replaced `AbilityBehaviorNode` + `PackedScene` approach with `AbilityScriptContainerNode`. Ability containers now live permanently inside the character scene as disabled child nodes, enabled only by `AbilityTree`. Removed `behavior_scene` property from `Ability` — the link is now established by assigning the `Ability` resource to the container's `ability` property in the Inspector. Updated Section 4.6: class diagram, `Ability` property table, full `AbilityScriptContainerNode` section (lifecycle diagram, GDScript example, rationale), `AbilityTree` method descriptions, designer workflow, and activation flowchart. Updated Section 10.3 class table. |

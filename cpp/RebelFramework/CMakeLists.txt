@@ -19,6 +19,8 @@ add_library(${PROJECT_NAME} STATIC
         include/Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp
 
         # Ability System
+        include/Rebel/Ability/AbilityScriptContainerNode.hpp
+        src/Ability/AbilityScriptContainerNode.cpp
         include/Rebel/Ability/AbilityImprovement.hpp
         src/Ability/AbilityImprovement.cpp
         include/Rebel/Ability/Ability.hpp

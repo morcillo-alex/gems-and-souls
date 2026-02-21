@@ -1,0 +1,34 @@
+[gd_resource type="Ability" format=3 uid="uid://ikbwos53iyah"]
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_fg5ht"]
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_cy2tw"]
+level = 2
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_m8sm1"]
+level = 3
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_5yk3u"]
+level = 4
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_1dt4b"]
+level = 5
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_t2nk2"]
+level = 6
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_vo70q"]
+level = 7
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_m2kcb"]
+level = 8
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_3phdm"]
+level = 9
+
+[sub_resource type="AbilityImprovement" id="AbilityImprovement_rkwpp"]
+level = 10
+
+[resource]
+name = "Dash"
+improvements = [SubResource("AbilityImprovement_fg5ht"), SubResource("AbilityImprovement_cy2tw"), SubResource("AbilityImprovement_m8sm1"), SubResource("AbilityImprovement_5yk3u"), SubResource("AbilityImprovement_1dt4b"), SubResource("AbilityImprovement_t2nk2"), SubResource("AbilityImprovement_vo70q"), SubResource("AbilityImprovement_m2kcb"), SubResource("AbilityImprovement_3phdm"), SubResource("AbilityImprovement_rkwpp")]

@@ -2,6 +2,7 @@
 // Alejandro Morcillo Montejo - All Rights Reserved
 
 #include "Rebel/Ability/AbilityTree.hpp"
+#include "Rebel/Ability/AbilityScriptContainerNode.hpp"
 
 #include <godot_cpp/core/class_db.hpp>
 
@@ -17,6 +18,8 @@ void AbilityTree::_bind_methods() {
     // --- helpers ---
     ClassDB::bind_method(D_METHOD("get_root_nodes"), &AbilityTree::get_root_nodes);
     ClassDB::bind_method(D_METHOD("try_unlock", "node"), &AbilityTree::try_unlock);
+    ClassDB::bind_method(D_METHOD("try_activate", "node", "parent"), &AbilityTree::try_activate);
+    ClassDB::bind_method(D_METHOD("deactivate", "behavior_node"), &AbilityTree::deactivate);
 
     ADD_GROUP("AbilityTree", "");
     ADD_PROPERTY(PropertyInfo(Variant::ARRAY, "nodes",
@@ -81,6 +84,56 @@ bool AbilityTree::try_unlock(const Ref<AbilityNode>& node) {
 
     ability->set_enabled(true);
     return true;
+}
+
+// ---------------------------------------------------------------------------
+// try_activate
+// ---------------------------------------------------------------------------
+
+Node* AbilityTree::try_activate(const Ref<AbilityNode>& node, Node* character) {
+    if (!try_unlock(node)) {
+        return nullptr;
+    }
+
+    if (character == nullptr) {
+        return nullptr;
+    }
+
+    const Ref<Ability> ability = node->get_ability();
+
+    // Search the character's direct children for the matching container.
+    for (int i = 0; i < character->get_child_count(); ++i) {
+        AbilityScriptContainerNode* container =
+            Object::cast_to<AbilityScriptContainerNode>(character->get_child(i));
+
+        if (container == nullptr) {
+            continue;
+        }
+
+        if (container->get_ability() == ability) {
+            container->on_activated();
+            return container;
+        }
+    }
+
+    // Ability unlocked in data but no container found — passive ability.
+    return nullptr;
+}
+
+// ---------------------------------------------------------------------------
+// deactivate
+// ---------------------------------------------------------------------------
+
+void AbilityTree::deactivate(Node* behavior_node) {
+    if (behavior_node == nullptr) {
+        return;
+    }
+
+    if (AbilityScriptContainerNode* container =
+            Object::cast_to<AbilityScriptContainerNode>(behavior_node)) {
+        container->on_deactivated();
+    }
+    // The node is part of the character scene — do NOT queue_free().
 }
 
 } // namespace Rebel::Ability

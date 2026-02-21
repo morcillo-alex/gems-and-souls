@@ -18,7 +18,7 @@ ambient_light_color = Color(0.36810192, 0.36810198, 0.36810192, 1)
 ambient_light_sky_contribution = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ijluy"]
-size = Vector3(10, 1, 10)
+size = Vector3(20, 1, 20)
 
 [node name="LevelPrototyping" type="Node3D" unique_id=1219768676]
 
@@ -32,9 +32,15 @@ shadow_enabled = true
 environment = SubResource("Environment_pd7nj")
 
 [node name="Ground" type="CSGMesh3D" parent="." unique_id=1286378237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8124657)
 use_collision = true
 mesh = SubResource("BoxMesh_ijluy")
 material = ExtResource("1_d8jvq")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground" unique_id=1609727704]
+transform = Transform3D(0.99999803, -0.0019722208, 0, 0.0019722208, 0.99999803, 0, 0, 0, 1, 0, -0.26865482, -49.964306)
+size = Vector3(10, 1.533, 80)
+
 [node name="Player" parent="." unique_id=3434954 instance=ExtResource("2_3u6ni")]
+spring_arm_pitch_angle = -60.0
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.52013016, 0)
