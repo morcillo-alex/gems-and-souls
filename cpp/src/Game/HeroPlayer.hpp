@@ -8,6 +8,7 @@
 #include "godot_cpp/classes/animation_tree.hpp"
 #include "godot_cpp/variant/string_name.hpp"
 #include "Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp"
+#include "Rebel/Ability/AbilityTree.hpp"
 
 namespace GaS {
 
@@ -19,6 +20,9 @@ namespace GaS {
  * editor so designers can configure them without modifying C++ code.
  *
  * ## Editor-Exposed Properties
+ *
+ * ### Ability Tree
+ * - `ability_tree` — The AbilityTree resource that defines the hero's abilities and upgrade paths.
  *
  * ### Animation Node
  * - `animation_tree` — The AnimationTree node to drive.
@@ -35,6 +39,13 @@ namespace GaS {
  */
 class HeroPlayer : public Rebel::CharacterBody::PlayerTopDownCharacterBody3D {
     GDCLASS(HeroPlayer, Rebel::CharacterBody::PlayerTopDownCharacterBody3D);
+
+    // -------------------------------------------------------------------------
+    // Ability system
+    // -------------------------------------------------------------------------
+
+    /** The AbilityTree resource assigned in the editor. */
+    godot::Ref<Rebel::Ability::AbilityTree> m_abilityTree{};
 
     // -------------------------------------------------------------------------
     // Animation node references
@@ -103,6 +114,22 @@ public:
         const godot::Vector3& velocity,
         const godot::Vector2& inputDirection,
         bool isOnFloor) const;
+
+    // -------------------------------------------------------------------------
+    // AbilityTree property accessors
+    // -------------------------------------------------------------------------
+
+    /**
+     * @brief Assigns the AbilityTree resource for this hero.
+     * @param tree The AbilityTree resource. May be null to clear.
+     */
+    void set_ability_tree(const godot::Ref<Rebel::Ability::AbilityTree>& tree);
+
+    /**
+     * @brief Returns the currently assigned AbilityTree resource.
+     * @return Ref<AbilityTree>, may be null if not assigned.
+     */
+    [[nodiscard]] godot::Ref<Rebel::Ability::AbilityTree> get_ability_tree() const;
 
     // -------------------------------------------------------------------------
     // AnimationTree property accessors

@@ -22,6 +22,17 @@ void HeroPlayer::_bind_methods() {
         &HeroPlayer::_on_player_movement_changed);
 
     // -------------------------------------------------------------------------
+    // AbilityTree resource property
+    // -------------------------------------------------------------------------
+    ClassDB::bind_method(D_METHOD("set_ability_tree", "ability_tree"), &HeroPlayer::set_ability_tree);
+    ClassDB::bind_method(D_METHOD("get_ability_tree"), &HeroPlayer::get_ability_tree);
+    ClassDB::add_property(
+        "HeroPlayer",
+        PropertyInfo(Variant::OBJECT, "ability_tree", PROPERTY_HINT_RESOURCE_TYPE, "AbilityTree"),
+        "set_ability_tree",
+        "get_ability_tree");
+
+    // -------------------------------------------------------------------------
     // AnimationTree node property
     // -------------------------------------------------------------------------
     ClassDB::bind_method(D_METHOD("set_animation_tree", "animation_tree"), &HeroPlayer::set_animation_tree);
@@ -142,6 +153,18 @@ void HeroPlayer::_on_player_movement_changed(
         m_animationStateMachine->travel(m_animStateMove, false);
         m_animationTree->set(m_animBlendMoveParam, inputDirection.length());
     }
+}
+
+// -----------------------------------------------------------------------------
+// AbilityTree property
+// -----------------------------------------------------------------------------
+
+void HeroPlayer::set_ability_tree(const Ref<Rebel::Ability::AbilityTree>& tree) {
+    m_abilityTree = tree;
+}
+
+Ref<Rebel::Ability::AbilityTree> HeroPlayer::get_ability_tree() const {
+    return m_abilityTree;
 }
 
 // -----------------------------------------------------------------------------
