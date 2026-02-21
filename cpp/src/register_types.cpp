@@ -17,6 +17,10 @@
 #include "Rebel/CharacterBody/PlayerPlatformerCharacterBody3D.hpp"
 #include "Rebel/CharacterBody/TopDownCharacterBody3D.hpp"
 #include "Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp"
+#include "Rebel/Ability/AbilityImprovement.hpp"
+#include "Rebel/Ability/Ability.hpp"
+#include "Rebel/Ability/AbilityNode.hpp"
+#include "Rebel/Ability/AbilityTree.hpp"
 
 
 
@@ -32,6 +36,12 @@ void initialize_gems_and_souls_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(Rebel::CharacterBody::TopDownCharacterBody3D);
 	GDREGISTER_CLASS(Rebel::CharacterBody::PlayerTopDownCharacterBody3D);
 	GDREGISTER_CLASS(GaS::HeroPlayer);
+
+	// Ability System — registration order matters: leaf types before container types
+	GDREGISTER_CLASS(Rebel::Ability::AbilityImprovement);
+	GDREGISTER_CLASS(Rebel::Ability::Ability);
+	GDREGISTER_CLASS(Rebel::Ability::AbilityNode);
+	GDREGISTER_CLASS(Rebel::Ability::AbilityTree);
 
 }
 

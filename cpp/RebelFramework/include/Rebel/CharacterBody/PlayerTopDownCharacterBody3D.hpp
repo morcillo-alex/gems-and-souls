@@ -25,16 +25,16 @@ private:
 
     /** Acceleration/deceleration state tracking */
 
-    /** Time elapsed since acceleration phase started. */
+    /** Time elapsed since the acceleration phase started. */
     float accelerationElapsed{0.0f};
 
-    /** Time elapsed since deceleration phase started. */
+    /** Time elapsed since the deceleration phase started. */
     float decelerationElapsed{0.0f};
 
     /** Horizontal velocity when the current phase began. */
     godot::Vector3 velocityAtPhaseStart{0.0f, 0.0f, 0.0f};
 
-    /** Target velocity when acceleration phase began (for direction change detection). */
+    /** Target velocity when the acceleration phase began (for direction change detection). */
     godot::Vector3 targetVelocityAtPhaseStart{0.0f, 0.0f, 0.0f};
 
     /** Whether currently in acceleration phase. */
@@ -42,16 +42,16 @@ private:
 
     /** Attack charge state tracking */
 
-    /** Time elapsed charging primary attack. */
+    /** Time elapsed charging the primary attack. */
     float attack1ChargeElapsed{0.0f};
 
-    /** Time elapsed charging secondary attack. */
+    /** Time elapsed charging a secondary attack. */
     float attack2ChargeElapsed{0.0f};
 
-    /** Whether primary attack is currently being charged. */
+    /** Whether a primary attack is currently being charged. */
     bool isAttack1Charging{false};
 
-    /** Whether secondary attack is currently being charged. */
+    /** Whether a secondary attack is currently being charged. */
     bool isAttack2Charging{false};
 
     /** Camera components */

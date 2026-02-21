@@ -17,6 +17,16 @@ add_library(${PROJECT_NAME} STATIC
         include/Rebel/CharacterBody/TopDownCharacterBody3D.hpp
         src/PlayerTopDownCharacterBody3D.cpp
         include/Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp
+
+        # Ability System
+        include/Rebel/Ability/AbilityImprovement.hpp
+        src/Ability/AbilityImprovement.cpp
+        include/Rebel/Ability/Ability.hpp
+        src/Ability/Ability.cpp
+        include/Rebel/Ability/AbilityNode.hpp
+        src/Ability/AbilityNode.cpp
+        include/Rebel/Ability/AbilityTree.hpp
+        src/Ability/AbilityTree.cpp
 )
 target_link_libraries(${PROJECT_NAME} PUBLIC godot-cpp)
 

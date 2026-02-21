@@ -17,6 +17,7 @@
 - [2. Core Gameplay Loop](#2-core-gameplay-loop)
 - [3. Game Mechanics](#3-game-mechanics)
 - [4. Systems Design](#4-systems-design)
+  - [4.6 Ability System](#46-ability-system)
 - [5. World & Level Design](#5-world--level-design)
 - [6. Narrative](#6-narrative)
 - [7. Art Direction](#7-art-direction)
@@ -211,6 +212,215 @@ Deathy observes player decisions and adjusts his behavior accordingly. Player ch
 > - **Persistent (saved to disk):** Permanent attributes, total XP earned, decision history, unlocked skins/characters, Deathy relationship state.
 > - **Per-run (lost on quit):** Current room, current gems, temporary buffs, run-specific choices.
 > - **Format:** JSON or Godot Resource? Consider ease of modding vs. save corruption risk.
+
+### 4.6 Ability System
+
+The Ability System is a **designer-first, data-driven framework** built into RebelFramework. All configuration is done through Godot's inspector using `.tres` Resource files — no code changes required to define new abilities, trees, or upgrade paths.
+
+> **Technical Note:** Implemented as three `Resource`-derived C++ classes registered via GDExtension: `Rebel::Ability::AbilityImprovement`, `Rebel::Ability::Ability`, `Rebel::Ability::AbilityNode`, and `Rebel::Ability::AbilityTree`. Headers under `cpp/RebelFramework/include/Rebel/Ability/`.
+
+---
+
+#### Class Overview
+
+```mermaid
+classDiagram
+    class AbilityImprovement {
+        +int level
+        +String description
+        +Ref~Texture2D~ icon
+        +float cost
+    }
+
+    class Ability {
+        +String name
+        +String description
+        +Ref~Texture2D~ icon
+        +bool enabled
+        +float cost
+        +Array improvements
+        +int current_level
+    }
+
+    class AbilityNode {
+        +Ref~Ability~ ability
+        +Array prerequisites
+        +bool can_unlock()
+    }
+
+    class AbilityTree {
+        +Array nodes
+        +Array get_root_nodes()
+        +bool try_unlock(node)
+    }
+
+    Ability "1" --> "10" AbilityImprovement : has improvements
+    AbilityNode "1" --> "1" Ability : holds
+    AbilityNode "0..*" --> "0..*" AbilityNode : prerequisites
+    AbilityTree "1" --> "0..*" AbilityNode : contains
+```
+
+---
+
+#### `AbilityImprovement` — One Upgrade Level
+
+Represents a single tier of improvement for an ability. Each `Ability` holds exactly **10 slots** (levels 1–10), pre-populated so the inspector always shows all upgrade tiers.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `level` | `int` | The tier number (1–10). Informational; actual level is tracked on the parent `Ability`. |
+| `description` | `String` | What this level upgrade does. Displayed in the ability UI tooltip. |
+| `icon` | `Ref<Texture2D>` | Optional icon override for this level. If `null`, the parent `Ability`'s icon is used instead. Useful for visually representing a powered-up version of the ability. |
+| `cost` | `float` | The resource cost to upgrade to this level. The game decides what currency this maps to (gems, XP, soul shards, etc.). |
+
+**Example — "Fireball" Level 3 improvement:**
+- `level`: 3
+- `description`: "Fireball splits into 3 projectiles on impact."
+- `icon`: (null — use the base Fireball icon)
+- `cost`: 150.0
+
+---
+
+#### `Ability` — The Core Ability Definition
+
+A single learnable or unlockable skill. Create one `.tres` file per ability.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `name` | `String` | Display name shown in the ability tree UI. |
+| `description` | `String` | Base description before any improvements are applied. |
+| `icon` | `Ref<Texture2D>` | The ability's icon shown in the tree and HUD. Fallback for all `AbilityImprovement` icons that are `null`. |
+| `enabled` | `bool` | Whether this ability is currently unlocked and active. Set to `true` by `AbilityTree.try_unlock()`. Read-only in the tree UI — do not manually set this in game code; use `try_unlock()` instead. |
+| `cost` | `float` | The resource cost to **unlock** this ability (i.e., to set `enabled = true`). Separate from improvement costs. |
+| `improvements` | `Array[AbilityImprovement]` | 10 pre-populated improvement slots (indices 0–9 = levels 1–10). Each slot is editable in the inspector. Slot 0 = Level 1, Slot 9 = Level 10. |
+| `current_level` | `int` | The currently active improvement level (0 = no improvements purchased, 1–10 = that level active). |
+
+**Icon resolution rule:**
+When rendering improvement level `N`, check `improvements[N-1].icon`. If it is `null`, fall back to `ability.icon`. This lets designers set a single base icon and only override for specific milestone levels (e.g., level 5 and level 10 power thresholds).
+
+**Cost interpretation:**
+`Ability.cost` = cost to unlock the ability itself (prerequisites must be met first).
+`AbilityImprovement.cost` = cost to purchase each individual upgrade tier.
+The game system defines what currency these costs consume — they are intentionally unitless floats.
+
+---
+
+#### `AbilityNode` — One Node in the Prerequisite Tree
+
+Wraps an `Ability` and defines its position in the unlock tree by listing which other nodes must be enabled first.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `ability` | `Ref<Ability>` | The ability this node represents. Assign the `.tres` ability resource here. |
+| `prerequisites` | `Array[AbilityNode]` | Other `AbilityNode` resources that must have their `ability.enabled == true` before this node can be unlocked. Leave empty for root abilities (no prerequisites). |
+
+**Helper method — `can_unlock() → bool`:**
+Returns `true` if **all** prerequisites have their `ability.enabled` set to `true`. This is a synchronous read — call it before displaying the unlock button in the UI.
+
+```
+can_unlock() pseudocode:
+  for each node in prerequisites:
+    if not node.ability.enabled:
+      return false
+  return true
+```
+
+**Prerequisite tree shape:**
+The tree is implied by the `prerequisites` arrays — there is no explicit parent pointer. An `AbilityNode` can have **multiple prerequisites** (AND logic: all must be unlocked) and can be a prerequisite for **multiple other nodes** (fan-out). This forms a directed acyclic graph (DAG), not a strict binary tree.
+
+```mermaid
+flowchart LR
+    A[Dodge Roll\n no prerequisites] --> B[Shadow Step\n requires Dodge Roll]
+    A --> C[Evasion Mastery\n requires Dodge Roll]
+    B --> D[Phase Shift\n requires Shadow Step\n + Evasion Mastery]
+    C --> D
+```
+
+---
+
+#### `AbilityTree` — The Full Collection
+
+Groups all `AbilityNode` resources into one serializable asset. One `AbilityTree` `.tres` file per character, class, or skill category.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `nodes` | `Array[AbilityNode]` | Flat list of every node in this tree. Order does not imply hierarchy — tree structure is defined by `AbilityNode.prerequisites`. |
+
+**Helper methods:**
+
+`get_root_nodes() → Array`
+Returns all nodes that have an empty `prerequisites` array. These are the starting points of the tree — abilities available to unlock from the beginning.
+
+`try_unlock(node: Ref<AbilityNode>) → bool`
+Attempts to unlock the ability on the given node:
+1. Calls `node.can_unlock()` — if `false`, returns `false` immediately.
+2. Checks that the player has sufficient resources to cover `node.ability.cost` (game code must validate this externally or via a signal/callback).
+3. Sets `node.ability.enabled = true`.
+4. Returns `true` on success.
+
+> [!DECISION] `try_unlock()` currently handles prerequisite checking inside the framework. Resource cost deduction (gems, XP, etc.) should be handled by game code before or after calling `try_unlock()`, since the framework has no knowledge of the game's economy. Define the handshake pattern: does game code check cost → call `try_unlock()`, or does `try_unlock()` emit a signal the game code consumes?
+
+---
+
+#### Designer Workflow
+
+**Step 1 — Create ability resources**
+
+For each ability, create a new `Ability` resource (`.tres`) in the Godot editor:
+1. In the FileSystem dock, right-click → **New Resource** → select `Ability`.
+2. Fill in `name`, `description`, `icon` (drag a Texture2D from the filesystem).
+3. Set `cost` (the unlock cost in whatever currency the game uses).
+4. The 10 `improvements` slots are pre-populated. Expand each to fill in `description` and `cost`. Optionally assign a unique `icon` for milestone levels.
+5. Leave `enabled = false` and `current_level = 0` — these are managed at runtime by the tree.
+
+**Step 2 — Build the node graph**
+
+For each ability, create an `AbilityNode` resource:
+1. Right-click → **New Resource** → select `AbilityNode`.
+2. Assign the corresponding `Ability` to the `ability` slot.
+3. In `prerequisites`, add references to any `AbilityNode` resources that must be unlocked first. Leave empty for root abilities.
+
+**Step 3 — Assemble the tree**
+
+Create one `AbilityTree` resource per character or skill category:
+1. Right-click → **New Resource** → select `AbilityTree`.
+2. In `nodes`, add all `AbilityNode` resources for this tree (the full flat list).
+3. Save as a `.tres` file and assign it to the relevant game node/component.
+
+**Step 4 — Runtime unlock flow**
+
+```mermaid
+flowchart TD
+    UI[Player clicks Unlock\non ability node] --> Check{node.can_unlock?}
+    Check -- No --> ShowLocked[Highlight missing prerequisites\nin the tree UI]
+    Check -- Yes --> Cost{Player has enough\nresources?}
+    Cost -- No --> ShowCost[Show insufficient\nresource feedback]
+    Cost -- Yes --> Deduct[Deduct cost from\nplayer resources]
+    Deduct --> Unlock[tree.try_unlock node\nsets ability.enabled = true]
+    Unlock --> Refresh[Refresh tree UI\nshow newly available nodes]
+```
+
+**Step 5 — Upgrade improvements**
+
+Once an ability is enabled, its improvement levels are purchased separately:
+- Check `ability.current_level` to know the current tier.
+- Read `ability.improvements[current_level].cost` for the next upgrade cost.
+- After deducting cost in game code, increment `ability.current_level` (max 10).
+- The active improvement description is `ability.improvements[ability.current_level - 1].description`.
+- The displayed icon is `ability.improvements[ability.current_level - 1].icon ?? ability.icon`.
+
+---
+
+#### Improvement Level Icon Strategy
+
+| Level | Recommended Icon Approach |
+|-------|--------------------------|
+| 1–4 | Use base `Ability.icon` (no override needed) |
+| 5 | Assign a "mid-tier" icon variant (e.g., glowing version) |
+| 6–9 | Use `null` (fall back to level 5 override or base) |
+| 10 | Assign a "max tier" icon variant (distinct, prestigious look) |
+
+This minimizes the number of unique icons needed while still giving visual weight to milestone levels.
 
 ---
 
@@ -591,4 +801,5 @@ Not applicable — single-player experience.
 | 2026-02-16 | Initial GDD creation. Populated overview, core loop, mechanics (from codebase), narrative hook, technical specs, and production timeline. Flagged open questions and decisions needed across all sections. |
 | 2026-02-16 | Replaced ASCII art diagrams with Mermaid: primary gameplay loop (Section 2.1) and architecture overview (Section 10.2). |
 | 2026-02-16 | Added roadmap link to Section 11. Updated development phases with status. Resolved release date question (2026-02-27). Reviewed all callouts: added specific suggestions and structured priorities to DECISION items across combat, interaction, audio, UI, VFX, dialogue, and save/load sections. |
+| 2026-02-21 | Added Section 4.6 — Ability System. Full designer documentation for AbilityImprovement, Ability, AbilityNode, and AbilityTree resources: class overview with Mermaid diagram, property tables, icon fallback rules, cost interpretation, prerequisite DAG with example, designer step-by-step workflow, and runtime unlock flow diagram. |
 | 2026-02-21 | Updated mechanics sections (3.1-3.5) to reflect actual code implementation: corrected from platformer to top-down movement, added camera system details (SpringArm3D with -55° pitch angle), updated combat system with actual implementation details (charge state tracking), removed jump mechanics, added animation system section (AnimationTree with state machine). Updated architecture overview (10.2) with complete character controller class hierarchy diagram showing BaseCharacterBody3D → TopDownCharacterBody3D → PlayerTopDownCharacterBody3D → HeroPlayer inheritance chain. All technical notes now reference correct class names and file paths. |
