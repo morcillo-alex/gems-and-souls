@@ -6,7 +6,9 @@
       "Bash(find:*)",
       "Bash(xargs cat:*)",
       "Bash(ls:*)",
-      "Bash(cmake.exe --build:*)"
+      "Bash(cmake.exe --build:*)",
+      "Bash(where:*)",
+      "Bash(cmd.exe:*)"
     ]
   }
 }

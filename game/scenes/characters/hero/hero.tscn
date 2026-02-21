@@ -20,19 +20,53 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_fg5ht")
 nodes/Animation/position = Vector2(-128, 176)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cy2tw"]
+animation = &"anim_lib_player/Walking_B"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m8sm1"]
+animation = &"anim_lib_player/Running_A"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5yk3u"]
+animation = &"anim_lib_player/Running_B"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1dt4b"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_cy2tw")
+blend_point_0/pos = 0.2
+blend_point_1/node = SubResource("AnimationNodeAnimation_m8sm1")
+blend_point_1/pos = 0.5
+blend_point_2/node = SubResource("AnimationNodeAnimation_5yk3u")
+blend_point_2/pos = 1.0
+min_space = 0.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_t2nk2"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vo70q"]
+nodes/output/position = Vector2(464, 112)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_t2nk2")
+nodes/TimeScale/position = Vector2(288, 112)
+nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_1dt4b")
+nodes/BlendSpace1D/position = Vector2(64, 144)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace1D"]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yk3u"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m2kcb"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fg5ht"]
 states/Idle/node = SubResource("AnimationNodeBlendTree_m8sm1")
-states/Idle/position = Vector2(321.2, 99.2)
+states/Idle/position = Vector2(319.6, 98.528)
+states/Move/node = SubResource("AnimationNodeBlendTree_vo70q")
+states/Move/position = Vector2(479.59998, 99.33696)
 states/Start/position = Vector2(189.6, 101.759995)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5yk3u")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5yk3u"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_m2kcb")]
 
 [node name="Player" type="HeroPlayer" unique_id=283651895 node_paths=PackedStringArray("animation_tree")]
 animation_tree = NodePath("AnimationTree")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1456109132]
+active = false
 root_node = NodePath("../Hiker")
 libraries/anim_lib_player = ExtResource("2_fg5ht")
 
@@ -54,3 +88,5 @@ root_node = NodePath("../Hiker")
 tree_root = SubResource("AnimationNodeStateMachine_fg5ht")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/TimeScale/scale = 1.0
+parameters/Move/TimeScale/scale = 1.0
+parameters/Move/BlendSpace1D/blend_position = 0.0625

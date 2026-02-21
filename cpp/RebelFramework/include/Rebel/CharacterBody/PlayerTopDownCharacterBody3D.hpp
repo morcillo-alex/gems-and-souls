@@ -92,12 +92,12 @@ private:
      */
     void setup_default_camera();
 
+protected:
     void _internal_enter_tree() override;
     void _internal_ready() override;
     void _internal_physics_process(double delta) override;
     void _internal_process(double delta) override;
 
-protected:
     static void _bind_methods();
 
 public:
