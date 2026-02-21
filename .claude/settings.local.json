@@ -5,7 +5,8 @@
       "Bash(ls -la \"C:\\\\Users\\\\Usuario\\\\CLionProjects\\\\gems-and-souls\\\\game\\\\models\\\\animations\"\" 2>/dev/null || echo \"Path not found \")",
       "Bash(find:*)",
       "Bash(xargs cat:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(cmake.exe --build:*)"
     ]
   }
 }

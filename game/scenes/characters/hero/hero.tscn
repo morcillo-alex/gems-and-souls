@@ -7,7 +7,30 @@
 radius = 0.4555664
 height = 2.303955
 
-[node name="Player" type="HeroPlayer" unique_id=283651895]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fg5ht"]
+animation = &"anim_lib_player/Idle_A"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cy2tw"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_m8sm1"]
+graph_offset = Vector2(-580.9653, 154.64792)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_cy2tw")
+nodes/TimeScale/position = Vector2(128, 144)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_fg5ht")
+nodes/Animation/position = Vector2(-128, 176)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5yk3u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fg5ht"]
+states/Idle/node = SubResource("AnimationNodeBlendTree_m8sm1")
+states/Idle/position = Vector2(321.2, 99.2)
+states/Start/position = Vector2(189.6, 101.759995)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5yk3u")]
+
+[node name="Player" type="HeroPlayer" unique_id=283651895 node_paths=PackedStringArray("animation_tree")]
+animation_tree = NodePath("AnimationTree")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1456109132]
 root_node = NodePath("../Hiker")
@@ -25,3 +48,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005864024, 1.1374475, 0)
 shape = SubResource("CapsuleShape3D_f4aw6")
 
 [node name="Hiker" parent="." unique_id=1864849305 instance=ExtResource("1_hrhmd")]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=366364087]
+root_node = NodePath("../Hiker")
+tree_root = SubResource("AnimationNodeStateMachine_fg5ht")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/TimeScale/scale = 1.0

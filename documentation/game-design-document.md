@@ -100,11 +100,12 @@ flowchart TD
 
 The player character is a 3D humanoid navigating a top-down world. Core mechanics:
 
-- **Movement:** WASD-based 3D movement with acceleration/deceleration curves for responsive but smooth feel. Configurable speed (default 8.0 units/s), acceleration time (0.3s), and deceleration time (0.2s).
-- **Jumping:** Variable-height jump with hold mechanics. Initial force (8.0), hold force (35.0), max hold time (0.5s), and early-release velocity cut (25%).
+- **Movement:** WASD-based XZ-plane movement (camera-relative) with acceleration/deceleration curves for responsive but smooth feel. Configurable speed (default 8.0 units/s), acceleration time (0.3s), and deceleration time (0.2s).
+- **Camera:** SpringArm3D-based camera system. Default pitch angle: -55° (Hades-like isometric perspective). Configurable from -90° (full top-down) to -15° (closer to third-person). Spring arm length: 12.0 units.
 - **Rotation:** Character faces movement direction with smooth interpolation (rotation speed multiplier: 15.0).
+- **Gravity:** Optional custom gravity system (disabled by default for pure top-down gameplay). Configurable direction and magnitude when enabled.
 
-> **Technical Note:** Movement is implemented in `PlayerPlatformerCharacterBody3D` (Rebel Framework) with ease-in/ease-out acceleration curves. See `cpp/RebelFramework/src/PlayerPlatformerCharacterBody3D.cpp`.
+> **Technical Note:** Movement is implemented in `PlayerTopDownCharacterBody3D` (Rebel Framework) with ease-in/ease-out acceleration curves. Character hierarchy: `BaseCharacterBody3D` → `TopDownCharacterBody3D` → `PlayerTopDownCharacterBody3D` → `GaS::HeroPlayer`. See `cpp/RebelFramework/include/Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp`.
 
 ### 3.2 Combat System
 
@@ -112,24 +113,44 @@ Combat uses a dual-attack charge system:
 
 - **Attack 1 (F key):** Primary attack — tap for quick strike, hold to charge for a power attack.
 - **Attack 2 (G key):** Secondary attack — different attack type with its own charge mechanic.
-- **Charge Mechanic:** Both attacks support hold-to-charge (default charge time: 1.0s). Charge level (0.0–1.0) is emitted via signal on release.
+- **Charge Mechanic:** Both attacks support hold-to-charge (default charge time: 1.0s). Charge level (0.0–1.0) is tracked while button is held and available via `get_attack1_charge_level()` / `get_attack2_charge_level()` methods.
+- **Dodge (Space key):** Dodge mechanic signal emitted when pressed. Implementation deferred to game code.
 
-> **Technical Note:** Attack charging is implemented in `PlayerPlatformerCharacterBody3D`. Signals `attack1_released(charge_level)` and `attack2_released(charge_level)` are emitted. See `cpp/RebelFramework/include/Rebel/CharacterBody/PlayerPlatformerCharacterBody3D.hpp`.
+> **Technical Note:** Attack charging is implemented in `PlayerTopDownCharacterBody3D` (Rebel Framework). Charge state is tracked internally with elapsed time counters (`attack1ChargeElapsed`, `attack2ChargeElapsed`). Boolean flags indicate charging state (`isAttack1Charging`, `isAttack2Charging`). Input actions are configurable properties. See `cpp/RebelFramework/include/Rebel/CharacterBody/PlayerTopDownCharacterBody3D.hpp`.
 
 > [!DECISION] Define attack design. Key questions:
 > - What are Attack 1 and Attack 2? (e.g., melee swing vs. ranged projectile? light vs. heavy?)
 > - How does charge level (0.0–1.0) scale? Linear damage? Threshold tiers (25%/50%/100%)?
 > - Should full charge have a special effect (knockback, AoE, stun)?
+> - How does the dodge mechanic work? (Invincibility frames, distance, cooldown?)
 
 ### 3.3 Movement System
 
 See [3.1 Player Mechanics](#31-player-mechanics) for core movement. Additional details:
 
-- **Custom Gravity:** Configurable direction and magnitude (default: 30.0 units/s², terminal velocity: 120.0 units/s).
 - **Physics Engine:** Jolt Physics 3D for collision detection and resolution.
 - **Move-and-Slide:** Standard Godot CharacterBody3D integration for smooth collision handling.
+- **Acceleration Curves:** Ease-in for acceleration (slow start, fast finish), ease-out for deceleration (fast start, slow finish). Configurable curve intensity (0=linear, 1=sharp).
+- **XZ-Plane Movement:** Movement is constrained to the horizontal plane (XZ). Camera-relative input ensures intuitive WASD control regardless of camera angle.
 
-### 3.4 Interaction System
+### 3.4 Animation System
+
+Character animations are driven by an AnimationTree with a state machine:
+
+- **Animation States:**
+  - `Idle`: Standing still (no input)
+  - `Move`: Walking/running (BlendSpace1D blends based on input magnitude)
+  - `JumpAir`: In the air / falling (when `is_on_floor()` is false)
+- **State Transitions:** Handled by `HeroPlayer::_on_player_movement_changed()` callback, which receives velocity, input direction, and floor state.
+- **Blend Parameters:** Movement blend position set to input direction length (0.0 = idle, 1.0 = full speed).
+
+**Available Character Models:** Kaykit Protagonist B (medium rig) with backpack. Additional models available but unused: Knight, Mage, Ranger, Rogue, Warrior, Caveman, Druid, Engineer, Frostgolem, Vampire, Witch, Tiefling, Clanker, Combat Mech, Black Knight, Barbarians.
+
+> **Technical Note:** Animation integration is implemented in `GaS::HeroPlayer`. AnimationTree is assigned via editor property. State machine playback retrieved with `animationTree->get("parameters/playback")`. See `cpp/src/Game/HeroPlayer.cpp`.
+
+> [!QUESTION] Should alternate character models be unlockable skins as part of permanent progression?
+
+### 3.5 Interaction System
 
 - **Interact (E key):** Context-sensitive interaction with world objects, NPCs, items, altars.
 
@@ -362,6 +383,23 @@ The player is the latest soul to catch Deathy's attention. Each run is a "play s
 | Renderer | Forward Plus (D3D12 on Windows) |
 | Dependencies | godot-cpp, vcpkg |
 
+**Input Configuration (project.godot):**
+
+| Action | Key | Purpose |
+|--------|-----|---------|
+| `move_forward` | W | Move forward (camera-relative) |
+| `move_backward` | S | Move backward (camera-relative) |
+| `move_left` | A | Move left (camera-relative) |
+| `move_right` | D | Move right (camera-relative) |
+| `attack_1` | F | Primary attack (charge-capable) |
+| `attack_2` | G | Secondary attack (charge-capable) |
+| `interact` | E | Context-sensitive interaction |
+| `dodge` | Space | Dodge/evade |
+| `pause` | Escape | Pause menu |
+| `menu` | Tab | Inventory/character menu |
+
+All input actions configured with 0.2 deadzone. Input action names are configurable properties in `PlayerTopDownCharacterBody3D` (can be remapped at runtime if needed).
+
 ### 10.2 Architecture Overview
 
 ```mermaid
@@ -369,29 +407,129 @@ graph TD
     A["Godot 4.6 Engine\n(Forward Plus, Jolt Physics)"]
     B["GDExtension Bridge\n(GemsAndSoulsGame)"]
     C["Game Code (C++)\n- HeroPlayer\n- register_types"]
-    D["Rebel Framework (Static)\n- PlatformerCharacterBody3D\n- PlayerPlatformerCharacterBody3D"]
+    D["Rebel Framework (Static)\n- Character Controller Hierarchy\n- Camera Systems\n- Movement Logic"]
     E["godot-cpp Bindings"]
 
     A --> B --> C --> D --> E
 ```
 
+**Character Controller Class Hierarchy:**
+
+```mermaid
+classDiagram
+    CharacterBody3D <|-- BaseCharacterBody3D
+    BaseCharacterBody3D <|-- TopDownCharacterBody3D
+    BaseCharacterBody3D <|-- PlatformerCharacterBody3D
+    TopDownCharacterBody3D <|-- PlayerTopDownCharacterBody3D
+    PlatformerCharacterBody3D <|-- PlayerPlatformerCharacterBody3D
+    PlayerTopDownCharacterBody3D <|-- HeroPlayer
+
+    class BaseCharacterBody3D {
+        <<abstract>>
+        +float movingSpeed
+        +float accelerationTime
+        +float decelerationTime
+        +float rotationSpeed
+        +float attackChargeTime
+        +bool useCustomGravity
+        +ApplyGravity(delta)
+        +ease_in(t, intensity)
+        +ease_out(t, intensity)
+    }
+
+    class TopDownCharacterBody3D {
+        +ApplyGravity(delta)
+    }
+
+    class PlayerTopDownCharacterBody3D {
+        +SpringArm3D* cameraSpringArm
+        +Camera3D* playerCamera
+        +float springArmPitchAngle
+        +float attack1ChargeElapsed
+        +float attack2ChargeElapsed
+        +apply_movement(delta)
+        +activate_camera()
+        +get_attack1_charge_level()
+        +get_attack2_charge_level()
+    }
+
+    class HeroPlayer {
+        +AnimationTree* animationTree
+        +AnimationNodeStateMachinePlayback stateMachine
+        +_on_player_movement_changed()
+    }
+```
+
 **Key Design Decisions:**
 - **Rebel Framework** is a reusable static library providing engine-level character and movement mechanics, game-agnostic.
-- **Game Code** extends the framework with game-specific behavior (HeroPlayer, animations, combat).
+  - `BaseCharacterBody3D`: Abstract base with shared movement, gravity, easing curves, rotation.
+  - `TopDownCharacterBody3D`: Optimized for top-down gameplay (gravity disabled by default).
+  - `PlayerTopDownCharacterBody3D`: Adds camera system (SpringArm3D + Camera3D), input handling, attack charging.
+  - `PlatformerCharacterBody3D` / `PlayerPlatformerCharacterBody3D`: Alternative hierarchy for platformer games (not used in this project).
+- **Game Code** extends the framework with game-specific behavior:
+  - `GaS::HeroPlayer`: Integrates AnimationTree and state machine, handles animation transitions based on movement state.
 - **GDExtension** enables hot-reload during development (`reloadable = true`).
 
-### 10.3 Performance Targets
+### 10.3 GDExtension Classes
+
+**Registered Classes (Available in Godot Editor):**
+
+All classes are registered in `cpp/src/register_types.cpp` with entry point `gems_and_souls_library_init`. Minimum Godot compatibility: 4.5.
+
+| Class | Namespace | Type | Purpose |
+|-------|-----------|------|---------|
+| `BaseCharacterBody3D` | `Rebel::CharacterBody` | Abstract | Base character movement and physics |
+| `TopDownCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Top-down optimized character body |
+| `PlayerTopDownCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Player-controlled top-down with camera |
+| `PlatformerCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Platformer character body (unused) |
+| `PlayerPlatformerCharacterBody3D` | `Rebel::CharacterBody` | Concrete | Player platformer controller (unused) |
+| `HeroPlayer` | `GaS` | Concrete | Game-specific hero with animations |
+
+**Custom Icon:** `PlatformerCharacterBody3D` has custom editor icon defined in `.gdextension` file.
+
+### 10.4 Build System
+
+- **Build Directory:** `cpp/` (all build commands must run from this directory)
+- **Build Command:** `cmake --build ./cmake-build-debug --target GemsAndSoulsGame -j 12`
+- **Output Location:** `gameLib/` (at project root)
+- **Hot Reload:** Enabled (`reloadable = true` in `.gdextension`)
+- **CMake Targets:**
+  - `GemsAndSoulsGame`: Main GDExtension library (links RebelFramework + godot-cpp)
+  - `RebelFramework`: Static library (links godot-cpp)
+
+### 10.5 Performance Targets
 
 - **Target FPS:** 120 (configured in project.godot)
 - **Physics Tick:** Default (60 Hz via Jolt)
 
-### 10.4 Platform Requirements
+### 10.6 Platform Requirements
 
 **Primary:** Windows (x86_64)
 **Export Targets:** Windows, Linux, Web (configured in `export_presets.cfg`)
 **Full Build Support:** macOS (arm64), Android (x86_64, arm64), iOS (xcframework), Web (wasm32)
 
-### 10.5 Networking
+### 10.7 Code Structure
+
+**Key Files:**
+
+| Path | Purpose |
+|------|---------|
+| `cpp/CMakeLists.txt` | Main build configuration |
+| `cpp/src/register_types.cpp` | GDExtension registration entry point |
+| `cpp/src/Game/HeroPlayer.{hpp,cpp}` | Hero character implementation |
+| `cpp/RebelFramework/include/Rebel/CharacterBody/` | Framework character controller headers |
+| `cpp/RebelFramework/src/` | Framework implementation files |
+| `GemsAndSoulsGame.gdextension` | GDExtension configuration (library paths, entry point) |
+| `project.godot` | Godot project settings (input, physics, renderer) |
+| `game/scenes/characters/hero/hero.tscn` | Hero character scene |
+| `game/models/animations/` | Character animations and rigs |
+
+**Development Workflow:**
+1. Modify C++ code in `cpp/src/` or `cpp/RebelFramework/`
+2. Build from `cpp/` directory: `cmake --build ./cmake-build-debug --target GemsAndSoulsGame -j 12`
+3. Godot hot-reloads the extension automatically (no editor restart needed)
+
+### 10.8 Networking
 
 Not applicable — single-player experience.
 
@@ -453,3 +591,4 @@ Not applicable — single-player experience.
 | 2026-02-16 | Initial GDD creation. Populated overview, core loop, mechanics (from codebase), narrative hook, technical specs, and production timeline. Flagged open questions and decisions needed across all sections. |
 | 2026-02-16 | Replaced ASCII art diagrams with Mermaid: primary gameplay loop (Section 2.1) and architecture overview (Section 10.2). |
 | 2026-02-16 | Added roadmap link to Section 11. Updated development phases with status. Resolved release date question (2026-02-27). Reviewed all callouts: added specific suggestions and structured priorities to DECISION items across combat, interaction, audio, UI, VFX, dialogue, and save/load sections. |
+| 2026-02-21 | Updated mechanics sections (3.1-3.5) to reflect actual code implementation: corrected from platformer to top-down movement, added camera system details (SpringArm3D with -55° pitch angle), updated combat system with actual implementation details (charge state tracking), removed jump mechanics, added animation system section (AnimationTree with state machine). Updated architecture overview (10.2) with complete character controller class hierarchy diagram showing BaseCharacterBody3D → TopDownCharacterBody3D → PlayerTopDownCharacterBody3D → HeroPlayer inheritance chain. All technical notes now reference correct class names and file paths. |

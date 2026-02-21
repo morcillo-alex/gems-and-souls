@@ -27,6 +27,10 @@ namespace GaS {
     public:
         void _on_player_movement_changed(const godot::RID& instanceId, const godot::Vector3& velocity, const godot::Vector2& inputDirection, bool isOnFloor) const;
 
+        // Animation tree property accessors
+        void set_animation_tree(godot::AnimationTree* tree);
+        godot::AnimationTree* get_animation_tree() const;
+
         HeroPlayer() = default;
         ~HeroPlayer() override = default;
 
