@@ -69,21 +69,21 @@ states/Move/position = Vector2(479.59998, 99.33696)
 states/Start/position = Vector2(189.6, 101.759995)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_5yk3u"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_m2kcb")]
 
-[node name="Player" type="HeroPlayer" unique_id=283651895 node_paths=PackedStringArray("animation_tree")]
+[node name="Player" type="HeroPlayer" unique_id=1047301080 node_paths=PackedStringArray("animation_tree")]
 ability_tree = SubResource("AbilityTree_p7te6")
 animation_tree = NodePath("AnimationTree")
+
+[node name="CameraSpringArm" type="SpringArm3D" parent="." unique_id=919652902]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 0, 0)
+top_level = true
+spring_length = 12.0
+
+[node name="PlayerCamera" type="Camera3D" parent="CameraSpringArm" unique_id=1806066889]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1456109132]
 active = false
 root_node = NodePath("../Hiker")
 libraries/anim_lib_player = ExtResource("2_fg5ht")
-
-[node name="CameraSpringArm" type="SpringArm3D" parent="." unique_id=42773087]
-transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, 0, 0, 0)
-top_level = true
-spring_length = 10.0
-
-[node name="PlayerCamera" type="Camera3D" parent="CameraSpringArm" unique_id=513740240]
 
 [node name="CharacterCollision" type="CollisionShape3D" parent="." unique_id=400734831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005864024, 1.1374475, 0)

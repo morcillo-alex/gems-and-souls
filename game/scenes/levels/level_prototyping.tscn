@@ -42,5 +42,7 @@ transform = Transform3D(0.99999803, -0.0019722208, 0, 0.0019722208, 0.99999803, 
 size = Vector3(10, 1.533, 80)
 
 [node name="Player" parent="." unique_id=3434954 instance=ExtResource("2_3u6ni")]
-spring_arm_pitch_angle = -60.0
+springarm_default_length = 26.8
+spring_arm_pitch_angle = -30.0
+rotation_speed = 10.0
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.52013016, 0)

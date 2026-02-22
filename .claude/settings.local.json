@@ -8,7 +8,11 @@
       "Bash(ls:*)",
       "Bash(cmake.exe --build:*)",
       "Bash(where:*)",
-      "Bash(cmd.exe:*)"
+      "Bash(cmd.exe:*)",
+      "WebSearch",
+      "WebFetch(domain:www.creativebloq.com)",
+      "WebFetch(domain:lensviewing.com)",
+      "WebFetch(domain:fearlessrevolution.com)"
     ]
   }
 }

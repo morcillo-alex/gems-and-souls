@@ -13,7 +13,7 @@ namespace Rebel::CharacterBody {
  *
  * This class extends TopDownCharacterBody3D and automatically adds a SpringArm3D and Camera3D
  * as child nodes. The camera pitch angle is configurable: -90 degrees for full top-down,
- * -55 degrees (default) for a Hades-like isometric perspective.
+ * -50 degrees (default) for a Moonlighter 2-style isometric perspective.
  *
  * Movement is purely on the XZ plane, camera-relative. Includes a dodge signal for
  * rogue-like dodge mechanics (implementation deferred to game code).
@@ -68,11 +68,14 @@ private:
     /** Default spring arm length (longer for overhead views). */
     float springArmLength{12.0f};
 
-    /** Camera pitch angle in degrees. -90 = full top-down, -55 = Hades-like. Range: -90 to -15. */
-    float springArmPitchAngle{-55.0f};
+    /** Camera pitch angle in degrees. -90 = full top-down, -50 = Moonlighter 2-style. Range: -90 to -15. */
+    float springArmPitchAngle{-50.0f};
 
     /** Camera yaw angle in degrees. Allows rotating the camera's viewing direction. */
     float springArmYawAngle{0.0f};
+
+    /** Camera field of view in degrees. Lower values reduce perspective distortion. */
+    float cameraFov{45.0f};
 
     /** Input action names **/
 
@@ -91,6 +94,14 @@ private:
      * @brief Sets up the default camera and spring arm if they do not already exist.
      */
     void setup_default_camera();
+
+    /**
+     * @brief Applies the configured pitch, yaw, offset, length, and FOV to the spring arm and camera.
+     *
+     * Called after setup_default_camera() and from property setters to ensure the C++ property
+     * values always override any stale transforms saved in the scene file.
+     */
+    void apply_spring_arm_transform();
 
 protected:
     void _internal_enter_tree() override;
@@ -126,6 +137,9 @@ public:
 
     [[nodiscard]] float get_spring_arm_yaw_angle() const;
     void set_spring_arm_yaw_angle(float angle);
+
+    [[nodiscard]] float get_camera_fov() const;
+    void set_camera_fov(float fov);
 
     [[nodiscard]] godot::SpringArm3D* get_spring_arm() const;
     [[nodiscard]] godot::Camera3D* get_camera() const;

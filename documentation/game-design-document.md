@@ -53,7 +53,10 @@ The player is a soul trapped in Deathy's domain, navigating rooms that shift bet
 
 ### 1.4 References & Inspirations
 
-> [!QUESTION] What are the primary game references and inspirations? (e.g., Hades, The Binding of Isaac, Slay the Spire, WarioWare for the micro-games?)
+- **Moonlighter 2: The Endless Vault** — Camera perspective and top-down 3D isometric style. Three-quarter view at ~50° pitch with perspective projection.
+- **Hades** — Combat feel, isometric action RPG pacing, room-based progression.
+
+> [!QUESTION] What are additional game references and inspirations? (e.g., The Binding of Isaac, Slay the Spire, WarioWare for the micro-games?)
 
 ---
 
@@ -102,7 +105,7 @@ flowchart TD
 The player character is a 3D humanoid navigating a top-down world. Core mechanics:
 
 - **Movement:** WASD-based XZ-plane movement (camera-relative) with acceleration/deceleration curves for responsive but smooth feel. Configurable speed (default 8.0 units/s), acceleration time (0.3s), and deceleration time (0.2s).
-- **Camera:** SpringArm3D-based camera system. Default pitch angle: -55° (Hades-like isometric perspective). Configurable from -90° (full top-down) to -15° (closer to third-person). Spring arm length: 12.0 units.
+- **Camera:** SpringArm3D-based camera system inspired by **Moonlighter 2**'s three-quarter isometric perspective. Default pitch angle: -50° (Moonlighter 2-style). Configurable from -90° (full top-down) to -15° (closer to third-person). Default FOV: 45° (narrower to reduce perspective distortion, mimicking the isometric feel). Spring arm length: 12.0 units. All camera properties (pitch, yaw, FOV, offset, length) are editor-configurable and reliably applied at runtime — the C++ property values always take precedence over saved scene transforms.
 - **Rotation:** Character faces movement direction with smooth interpolation (rotation speed multiplier: 15.0).
 - **Gravity:** Optional custom gravity system (disabled by default for pure top-down gameplay). Configurable direction and magnitude when enabled.
 
@@ -738,10 +741,12 @@ classDiagram
         +SpringArm3D* cameraSpringArm
         +Camera3D* playerCamera
         +float springArmPitchAngle
+        +float cameraFov
         +float attack1ChargeElapsed
         +float attack2ChargeElapsed
         +apply_movement(delta)
         +activate_camera()
+        +apply_spring_arm_transform()
         +get_attack1_charge_level()
         +get_attack2_charge_level()
     }
@@ -893,3 +898,4 @@ Not applicable — single-player experience.
 | 2026-02-21 | Updated mechanics sections (3.1-3.5) to reflect actual code implementation: corrected from platformer to top-down movement, added camera system details (SpringArm3D with -55° pitch angle), updated combat system with actual implementation details (charge state tracking), removed jump mechanics, added animation system section (AnimationTree with state machine). Updated architecture overview (10.2) with complete character controller class hierarchy diagram showing BaseCharacterBody3D → TopDownCharacterBody3D → PlayerTopDownCharacterBody3D → HeroPlayer inheritance chain. All technical notes now reference correct class names and file paths. |
 | 2026-02-21 | Extended Section 4.6 Ability System with node-based behavior architecture. Added `AbilityBehaviorNode` class (Node-derived GDExtension base with `_on_activated` / `_on_deactivated` GDScript virtuals). Added `behavior_scene: PackedScene` property to `Ability`. Added `try_activate(node, parent)` and `deactivate(behavior_node)` methods to `AbilityTree`. Updated class diagram, property tables, designer workflow (Steps 1–7), and runtime activation flowchart to reflect passive vs. active ability distinction. Updated Section 10.3 GDExtension class table with all Ability System classes. |
 | 2026-02-21 | Replaced `AbilityBehaviorNode` + `PackedScene` approach with `AbilityScriptContainerNode`. Ability containers now live permanently inside the character scene as disabled child nodes, enabled only by `AbilityTree`. Removed `behavior_scene` property from `Ability` — the link is now established by assigning the `Ability` resource to the container's `ability` property in the Inspector. Updated Section 4.6: class diagram, `Ability` property table, full `AbilityScriptContainerNode` section (lifecycle diagram, GDScript example, rationale), `AbilityTree` method descriptions, designer workflow, and activation flowchart. Updated Section 10.3 class table. |
+| 2026-02-22 | Fixed top-down camera configuration bug: editor-set properties (pitch, yaw, offset, length) were ignored at runtime because Godot deserializes properties before child nodes exist, causing setters to no-op. Introduced `apply_spring_arm_transform()` — a centralized method that rebuilds and applies the full camera transform from C++ property values, called after `setup_default_camera()` and from all camera property setters. This ensures C++ properties always override stale transforms saved in the `.tscn`. Added `camera_fov` property (default 45°, range 10–120°) for controlling perspective distortion. Changed default pitch angle from -55° (Hades-style) to -50° (Moonlighter 2-style). Updated Section 1.4 with Moonlighter 2 and Hades as camera/style references. Updated Section 3.1 camera description and Section 10.2 class diagram. |

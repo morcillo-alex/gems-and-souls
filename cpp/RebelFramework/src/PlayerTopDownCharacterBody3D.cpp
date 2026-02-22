@@ -24,14 +24,6 @@ namespace Rebel::CharacterBody {
         if (cameraSpringArm == nullptr) {
             cameraSpringArm = memnew(godot::SpringArm3D);
             cameraSpringArm->set_name("CameraSpringArm");
-
-            // Build transform from configurable pitch and yaw angles
-            Transform3D transform;
-            transform.origin = springArmOffset;
-            transform.basis = transform.basis.rotated(Vector3(1.0f, 0.0f, 0.0f), Math::deg_to_rad(springArmPitchAngle));
-            transform.basis = transform.basis.rotated(Vector3(0.0f, 1.0f, 0.0f), Math::deg_to_rad(springArmYawAngle));
-            cameraSpringArm->set_transform(transform);
-            cameraSpringArm->set_length(springArmLength);
             cameraSpringArm->set_collision_mask(1);
 
             add_child(cameraSpringArm);
@@ -61,6 +53,24 @@ namespace Rebel::CharacterBody {
             } else if (Engine::get_singleton()->is_editor_hint()) {
                 playerCamera->set_owner(get_owner() != nullptr ? get_owner() : this);
             }
+        }
+
+        // Always apply the configured transform from C++ properties.
+        // This ensures editor-set values override any stale transforms saved in the .tscn.
+        apply_spring_arm_transform();
+    }
+
+    void PlayerTopDownCharacterBody3D::apply_spring_arm_transform() {
+        if (cameraSpringArm) {
+            Transform3D transform;
+            transform.origin = springArmOffset;
+            transform.basis = transform.basis.rotated(Vector3(1.0f, 0.0f, 0.0f), Math::deg_to_rad(springArmPitchAngle));
+            transform.basis = transform.basis.rotated(Vector3(0.0f, 1.0f, 0.0f), Math::deg_to_rad(springArmYawAngle));
+            cameraSpringArm->set_transform(transform);
+            cameraSpringArm->set_length(springArmLength);
+        }
+        if (playerCamera) {
+            playerCamera->set_fov(cameraFov);
         }
     }
 
@@ -106,6 +116,9 @@ namespace Rebel::CharacterBody {
         ClassDB::bind_method(D_METHOD("get_spring_arm_yaw_angle"), &PlayerTopDownCharacterBody3D::get_spring_arm_yaw_angle);
         ClassDB::bind_method(D_METHOD("set_spring_arm_yaw_angle", "angle"), &PlayerTopDownCharacterBody3D::set_spring_arm_yaw_angle);
 
+        ClassDB::bind_method(D_METHOD("get_camera_fov"), &PlayerTopDownCharacterBody3D::get_camera_fov);
+        ClassDB::bind_method(D_METHOD("set_camera_fov", "fov"), &PlayerTopDownCharacterBody3D::set_camera_fov);
+
         // Input action bindings
         ClassDB::bind_method(D_METHOD("set_move_left_action", "action_name"), &PlayerTopDownCharacterBody3D::set_move_left_action);
         ClassDB::bind_method(D_METHOD("get_move_left_action"), &PlayerTopDownCharacterBody3D::get_move_left_action);
@@ -143,6 +156,7 @@ namespace Rebel::CharacterBody {
         ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "springarm_default_length", PROPERTY_HINT_RANGE, "0,100,0.1,or_greater"), "set_springarm_default_length", "get_springarm_default_length");
         ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "spring_arm_pitch_angle", PROPERTY_HINT_RANGE, "-90,-15,0.5"), "set_spring_arm_pitch_angle", "get_spring_arm_pitch_angle");
         ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "spring_arm_yaw_angle", PROPERTY_HINT_RANGE, "-180,180,0.5"), "set_spring_arm_yaw_angle", "get_spring_arm_yaw_angle");
+        ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "camera_fov", PROPERTY_HINT_RANGE, "10,120,0.5"), "set_camera_fov", "get_camera_fov");
 
         // Register input action properties
         ADD_GROUP("Input Actions", "");
@@ -376,11 +390,7 @@ namespace Rebel::CharacterBody {
 
     void PlayerTopDownCharacterBody3D::set_spring_arm_offset(const Vector3 &offset) {
         springArmOffset = offset;
-        if (cameraSpringArm) {
-            Transform3D transform = cameraSpringArm->get_transform();
-            transform.origin = offset;
-            cameraSpringArm->set_transform(transform);
-        }
+        apply_spring_arm_transform();
     }
 
     float PlayerTopDownCharacterBody3D::get_springarm_default_length() const {
@@ -389,9 +399,7 @@ namespace Rebel::CharacterBody {
 
     void PlayerTopDownCharacterBody3D::set_springarm_default_length(const float length) {
         springArmLength = length;
-        if (cameraSpringArm) {
-            cameraSpringArm->set_length(length);
-        }
+        apply_spring_arm_transform();
     }
 
     float PlayerTopDownCharacterBody3D::get_spring_arm_pitch_angle() const {
@@ -400,13 +408,7 @@ namespace Rebel::CharacterBody {
 
     void PlayerTopDownCharacterBody3D::set_spring_arm_pitch_angle(const float angle) {
         springArmPitchAngle = Math::clamp(angle, -90.0f, -15.0f);
-        if (cameraSpringArm) {
-            Transform3D transform;
-            transform.origin = springArmOffset;
-            transform.basis = transform.basis.rotated(Vector3(1.0f, 0.0f, 0.0f), Math::deg_to_rad(springArmPitchAngle));
-            transform.basis = transform.basis.rotated(Vector3(0.0f, 1.0f, 0.0f), Math::deg_to_rad(springArmYawAngle));
-            cameraSpringArm->set_transform(transform);
-        }
+        apply_spring_arm_transform();
     }
 
     float PlayerTopDownCharacterBody3D::get_spring_arm_yaw_angle() const {
@@ -415,13 +417,16 @@ namespace Rebel::CharacterBody {
 
     void PlayerTopDownCharacterBody3D::set_spring_arm_yaw_angle(const float angle) {
         springArmYawAngle = angle;
-        if (cameraSpringArm) {
-            Transform3D transform;
-            transform.origin = springArmOffset;
-            transform.basis = transform.basis.rotated(Vector3(1.0f, 0.0f, 0.0f), Math::deg_to_rad(springArmPitchAngle));
-            transform.basis = transform.basis.rotated(Vector3(0.0f, 1.0f, 0.0f), Math::deg_to_rad(springArmYawAngle));
-            cameraSpringArm->set_transform(transform);
-        }
+        apply_spring_arm_transform();
+    }
+
+    float PlayerTopDownCharacterBody3D::get_camera_fov() const {
+        return cameraFov;
+    }
+
+    void PlayerTopDownCharacterBody3D::set_camera_fov(const float fov) {
+        cameraFov = Math::clamp(fov, 10.0f, 120.0f);
+        apply_spring_arm_transform();
     }
 
     SpringArm3D* PlayerTopDownCharacterBody3D::get_spring_arm() const {
